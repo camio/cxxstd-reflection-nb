@@ -111,6 +111,15 @@ TBD: should a constant expression (`1+foo('a')`) be allowed as a *reflexpr-opera
 
 ## CA 11 017 (10.01.7.6 p1) - CWG
 
+Suggest to accept the proposed change.
+
+Add the following line to Table 12, as the last row in the "type" Category:
+
+> :::add
+> |     | decltype-specifier | both `reflect::Type` and `reflect::Alias` |
+> :::
+
+
 ## CA 9 019 (10.01.7.6 p1) - CWG
 
 ## CA 7 021 (10.01.7.6 p1) - CWG
