@@ -107,6 +107,8 @@ Modify 10.1.7.6 as follows:
 
 ## CA 12 016 (10.01.7.6 p1) - CWG
 
+TBD: should a constant expression (`1+foo('a')`) be allowed as a *reflexpr-operand*?
+
 ## CA 11 017 (10.01.7.6 p1) - CWG
 
 ## CA 9 019 (10.01.7.6 p1) - CWG
