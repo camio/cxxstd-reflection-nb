@@ -46,6 +46,17 @@ Suggest to reject the proposed change: the type specified by a *reflexpr-specifi
 
 ## PL 009 (10.01.7.2, 10.1.7.6) - CWG
 
+Suggest to accept the proposed change: while the implementation defines the type, including its name, the TS does not actually specify the types. The use of "unspecified type" would be in line with many other occurrences in the IS (see e.g. [std.manip]).
+
+Modify 10.1.7.2/3 as follows:
+
+> For a *reflexpr-operand* `x`, the type denoted by `reflexpr(x)` is an [implementation-defined]{.rm}[unspecified]{.add} type that satisfies the constraints laid out in 10.1.7.6.
+
+Modify 10.1.7.6/3 as follows:
+
+> The type specified by the *reflexpr-specifier* is [implementation-defined]{.rm}[unspecified]{.add}.
+
+
 ## CH 010 (10.01.7.2) - SG7/EWG
 
 ## CA 5 011 (10.01.7.2) - CWG
