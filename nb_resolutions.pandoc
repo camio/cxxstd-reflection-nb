@@ -122,6 +122,16 @@ Add the following line to Table 12, as the last row in the "type" Category:
 
 ## CA 9 019 (10.01.7.6 p1) - CWG
 
+Suggest to accept the proposed change. Modify 10.01.7.6 as follows:
+
+> :::rm
+> For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
+> :::
+> :::add
+> For a *reflexpr-operand* that is a parenthesized expression `(E)`, `E` shall be a *function-call-expression*, *functional-type-conv-expression*, or an expression `(E')` that satisfies the requirements for being a *reflexpr-operand*.
+> :::
+
+
 ## CA 7 021 (10.01.7.6 p1) - CWG
 
 ## US 024 (10.01.7.6 p1) - CWG
