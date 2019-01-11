@@ -134,6 +134,26 @@ Suggest to accept the proposed change. Modify 10.01.7.6 as follows:
 
 ## CA 7 021 (10.01.7.6 p1) - CWG
 
+Suggest to accept the proposed change with modification. Modify 10.01.7.6 as follows:
+
+> An entity or alias [`A`]{.rm}[`B`]{.add} is *reflection-related* to an entity or alias [`B`]{.rm}[`A`]{.add} if
+> - `A` and `B` are the same entity or alias,
+> - `A` is a variable or enumerator and `B` is the type of `A`,
+> - `A` is an enumeration and `B` is the underlying type of `A`,
+> - `A` is a class and `B` is a member or base class of `A`,
+> - `A` is a non-template alias that designates the entity `B`,
+> [- `A` is a class nested in `B` (12.2.5),]{.rm}
+> - `A` is not the global namespace and `B` is an enclosing [class or]{.add} namespace of `A`,
+> - [`B`]{.rm}[`A`]{.add} is the parenthesized expression `( [A]{.rm}[B]{.add} )`,
+> - `A` is a lambda capture of the closure type `B`,
+> - `A` is the closure type of the lambda capture `B`,
+> - [`A`]{.rm}[`B`]{.add} is the type specified by the *functional-type-conv-expression* [`B`]{.rm}[`A`]{.add},
+> - [`A`]{.rm}[`B`]{.add} is the function selected by overload resolution for a *function-call-expression* [`B`]{.rm}[`A`]{.add},
+> - [`B`]{.rm}[`A`]{.add} is the return type, parameter type, or function type of the function [`B`]{.rm}[`A`]{.add}, or
+> - [`A`]{.rm}[`B`]{.add} is reflection-related to an entity or alias `X` and `X` is reflection-related to [`B`]{.rm}[`A`]{.add}.
+
+(Note: the modification to the suggested change consists in the clarification of enclosing classes, and the removal of the superfluous nested class case. The latter is subsumed by "member or base class of `A`".)
+
 ## US 024 (10.01.7.6 p1) - CWG
 
 ## US 025 (10.01.7.6 p1) - CWG
