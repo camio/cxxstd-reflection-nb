@@ -59,6 +59,13 @@ Modify 10.1.7.6/3 as follows:
 
 ## CH 010 (10.01.7.2) - SG7/EWG
 
+Suggest to reject the proposed change, with the rationale to allow future extensions reflecting templates. For those, a leading `template` specifier could be useful. The example's intent can instead be achieved using an intermediary alias:
+
+```
+using ABC = A::template B<C>;
+using ABC_r = reflexpr(ABC);
+```
+
 ## CA 5 011 (10.01.7.2) - CWG
 
 ## CH 013 (10.01.7.6) - CWG
