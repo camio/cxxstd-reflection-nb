@@ -21,60 +21,60 @@ This paper contains resolution suggestions to national body comments issued in
 
 # Suggested core resolutions (EWG / CWG)
 
-## CH 004 (04.03)
+## CH 004 (04.03) - SG10/CWG
 
-## CH 005 (06p1)
+## CH 005 (06p1) - CWG
 
-## CH 006 (06p1)
+## CH 006 (06p1) - CWG
 
-## CA 4 008 (08)
+## CA 4 008 (08) - CWG
 
-## PL 009 (10.01.7.2, 10.1.7.6)
+## PL 009 (10.01.7.2, 10.1.7.6) - CWG
 
-## CH 010 (10.01.7.2)
+## CH 010 (10.01.7.2) - SG7/EWG
 
-## CA 5 011 (10.01.7.2)
+## CA 5 011 (10.01.7.2) - CWG
 
-## CH 013 (10.01.7.6)
+## CH 013 (10.01.7.6) - CWG
 
-## CA 12 016 (10.01.7.6 p1)
+## CA 12 016 (10.01.7.6 p1) - CWG
 
-## CA 11 017 (10.01.7.6 p1)
+## CA 11 017 (10.01.7.6 p1) - CWG
 
-## CA 9 019 (10.01.7.6 p1)
+## CA 9 019 (10.01.7.6 p1) - CWG
 
-## CA 7 021 (10.01.7.6 p1)
+## CA 7 021 (10.01.7.6 p1) - CWG
 
-## US 024 (10.01.7.6 p1)
+## US 024 (10.01.7.6 p1) - CWG
 
-## US 025 (10.01.7.6 p1)
+## US 025 (10.01.7.6 p1) - CWG
 
-## CH 026 (17.07.2.1 p09.10)
+## CH 026 (17.07.2.1 p09.10) - CWG
 
-## CA 13 027 (17.07.2.1 p1)
+## CA 13 027 (17.07.2.1 p1) - CWG
 
-## CH 029 (21.12)
+## CH 029 (21.12) - CWG
 
-## CA 16 030 (21.12)
+## CA 16 030 (21.12) - CWG
 
-## CA 15 031 (21.12)
+## CA 15 031 (21.12) - SG7/EWG
 
-## CH 032 (21.12.02)
+## CH 032 (21.12.02) - CWG
 
-## PL 035 (21.12.02)
+## PL 035 (21.12.02) - CWG
 
-## PL 036 (21.12.02)
+## PL 036 (21.12.02) - SG7/EWG
 
-## CH 039 (21.12.02, 21.12.3.9)
+## CH 039 (21.12.02, 21.12.3.9) - CWG
 
-## CH 040 (21.12.03)
+## CH 040 (21.12.03) - SG7/EWG
 
-## CH 041 (21.12.3)/CH 072 (21.12.04.5)
+## CH 041 (21.12.3)/CH 072 (21.12.04.5) - SG7/EWG
 
 See 21.12.4.5. This is the proper use of namespacing and do not expect
 problems. Suggest no action.
 
-## CH 041 (21.12.3.10)
+## CH 041 (21.12.3.10) - SG7/EWG
 
 Suggest to accept this change.
 
@@ -85,69 +85,69 @@ Suggest to accept this change.
 
 Test [for the first form]{.add}
 
-## CH 042 (21.12.3.18)
+## CH 042 (21.12.3.18) - SG7/EWG
 
 This is a misunderstanding. A 'base' in this case has a class which is
 accessible with `get_class`. This class then has a name. Suggest no action.
 
-## CH 043 (21.12.03.6)
+## CH 043 (21.12.03.6) - CWG
 
-## CH 044 (21.12.03.7)
+## CH 044 (21.12.03.7) - CWG
 
-## CA 19 045 (21.12.04)
+## CA 19 045 (21.12.04) - CWG
 
-## CA 18 046 (21.12.04)
+## CA 18 046 (21.12.04) - CWG
 
-## PL 047 (21.12.04)
+## PL 047 (21.12.04) - SG7/EWG
 
 It is unclear how (or if) such a thing can be implemented. At any rate, this is
 something that can be added in the future if we get implementation experience
 that suggests this is possible and desirable.
 
-## CA 20 049 (21.12.04.1)
+## CA 20 049 (21.12.04.1) - CWG
 
-## CH 050 (21.12.04.10 p1)
+## CH 050 (21.12.04.10 p1) - CWG
 
-## CA 36 052 (21.12.04.16 p1)
+## CA 36 052 (21.12.04.16 p1) - CWG
 
-## CA 35 053 (21.12.04.16)
+## CA 35 053 (21.12.04.16) - SG7/EWG
 
 TBD. I don't understand what is meant by "reference binding" in this context.
 Myy understanding is that it is already clear that the example code is correct.
 We could potentially add an example?
 
-## PL 054 (21.12.04.18)
+## PL 054 (21.12.04.18) - SG7/EWG
 
 TBD. This is an interesting idea and the authors would invite a paper that
 provides the described behavior.
 
 
-## CH 057 (21.12.04.3 p2.1)
+## CH 057 (21.12.04.3 p2.1) - SG7/EWG
 
 This is already the existing behavior and lambda objects are specifically
 called out. See Section 21.12.4.3 paragraph 2.5. Lambda objects are not unnamed
 entities.
 
-## CH 058 (21.12.04.3)
+## CH 058 (21.12.04.3) - SG7/EWG
 
 21.12.4.2 paragraph 2.1 seeems to already handle alias templates.
 
 TBD: do we reflect on variables?
 
 
-## CA 32 060 (21.12.04.3 p2)
+## CA 32 060 (21.12.04.3 p2) - CWG
 
-## CA 31 061 (21.12.04.3 p2)
+## CA 31 061 (21.12.04.3 p2) - CWG
 
-## CA 28 064 (21.12.04.3 p2)
+## CA 28 064 (21.12.04.3 p2) - CWG
 
-## CA 27 065 (21.12.04.3 p2)
+## CA 27 065 (21.12.04.3 p2) - CWG
 
-## CA 26 066 (21.12.04.3 p2)
+## CA 26 066 (21.12.04.3 p2) - CWG
 
-## CA 24 068 (21.12.04.3 p2)
+## CA 24 068 (21.12.04.3 p2) - CWG
 
-## CH 074 (21.12.04.6)
+## CH 074 (21.12.04.6) - SG7/EWG
 
 TBD. This sounds like a good idea. The scope of a class template template
 parameter should be the class template and the scope of a function template
@@ -155,18 +155,18 @@ template parameter should be the function.
 
 **Needs wording**
 
-## US 075 (21.12.04.6)
+## US 075 (21.12.04.6) - CWG
 
-## CH 078 (21.12.04.7 and many others)
+## CH 078 (21.12.04.7 and many others) - CWG
 
-## CH 079 (21.12.04.9)
+## CH 079 (21.12.04.9) - SG7/EWG
 
 This sounds like a good idea.
 
 **Needs wording**
 
 
-## CH 080 (21.12.04.9)
+## CH 080 (21.12.04.9) - SG7/EWG
 
 This sounds like a good idea. The wording is in the proposed change.
 
@@ -178,27 +178,27 @@ Add new paragraph after paragraph 4:
 > conversion would not be a constant expression."
 > :::
 
-## CH 082 (Annex C)
+## CH 082 (Annex C) - CWG
 
-## GB 083 (Annex C)
+## GB 083 (Annex C) - CWG
 
-## GB 084 (Annex C)
+## GB 084 (Annex C) - CWG
 
-## GB 086 (General, 04.2)
+## GB 086 (General, 04.2) - SG10/CWG
 
 
 
 # Suggested library resolutions (LEWG/LWG)
 
-## CA 14 028 (20.05.1)
+## CA 14 028 (20.05.1) - LEWG
 
 Suggestion to accept this request.
 
 * Add `<experimental/reflect>` to Table 19 referenced by 20.5.1.3.
 
-## CH 056 (21.12.04.2)
+## CH 056 (21.12.04.2) - SG7/LWG
 
-## CA 1 085 (General)
+## CA 1 085 (General) - SG7/LEWG
 
 TBD. I do not understand this unfortunately. This seems like a LWG issue?
 
