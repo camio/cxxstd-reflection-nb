@@ -27,7 +27,15 @@ See GB 086.
 
 ## CH 005 (06p1) - CWG
 
+Suggest to reject the proposed change, in favor of the conflicting solution proposed in CH 006.
+
 ## CH 006 (06p1) - CWG
+
+Suggest to accept the proposed change with modification, to clarify that *alias* refers exclusively to types:
+
+> Rename all occurrences of *alias* to *type-alias* throughout the document.
+
+(Note: the modification consists of the added hyphen in "*type-alias*".)
 
 ## CA 4 008 (08) - CWG
 
