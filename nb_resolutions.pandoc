@@ -23,6 +23,8 @@ This paper contains resolution suggestions to national body comments issued in
 
 ## CH 004 (04.03) - SG10/CWG
 
+See GB 086.
+
 ## CH 005 (06p1) - CWG
 
 ## CH 006 (06p1) - CWG
@@ -186,6 +188,21 @@ Add new paragraph after paragraph 4:
 
 ## GB 086 (General, 04.2) - SG10/CWG
 
+Propose to accept the suggested modification, by inserting a new 4.3 between 4.2 and 4.3:
+
+::: add
+> 4.3 Feature-testing recommendations [intro.features]
+> 
+> \pnum{1} An implementation that provides support for this Technical Specification shall define the feature test
+> macro(s) in Table 2.
+>
+> Macro name     Value
+> -----------    ------
+> __cpp_reflect  201811
+>
+> Table 2 - Feature-test macro(s)
+> 
+:::
 
 
 # Suggested library resolutions (LEWG/LWG)
