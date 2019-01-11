@@ -99,6 +99,12 @@ Modify the description of the second column of Table 12 as follows:
 
 ## CH 013 (10.01.7.6) - CWG
 
+Suggest to accept the proposed change.
+
+Modify 10.1.7.6 as follows:
+
+> If the *reflexpr-operand* designates an entity or alias at block scope (6.3.3) or function [prototype]{.rm}[parameter]{.add} scope (6.3.4) and...
+
 ## CA 12 016 (10.01.7.6 p1) - CWG
 
 ## CA 11 017 (10.01.7.6 p1) - CWG
