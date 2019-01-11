@@ -108,6 +108,7 @@ Modify 10.1.7.6 as follows:
 ## CA 12 016 (10.01.7.6 p1) - CWG
 
 TBD: should a constant expression (`1+foo('a')`) be allowed as a *reflexpr-operand*?
+NO: we want to leave the door open for expression reflection
 
 ## CA 11 017 (10.01.7.6 p1) - CWG
 
@@ -223,15 +224,12 @@ that suggests this is possible and desirable.
 
 ## CA 35 053 (21.12.04.16) - SG7/EWG
 
-TBD. I don't understand what is meant by "reference binding" in this context.
-Myy understanding is that it is already clear that the example code is correct.
-We could potentially add an example?
+AXEL: bogus; explain why current wording is approriate / precise enough
+
 
 ## PL 054 (21.12.04.18) - SG7/EWG
 
-TBD. This is an interesting idea and the authors would invite a paper that
-provides the described behavior.
-
+DAVID: accept for override.
 
 ## CH 057 (21.12.04.3 p2.1) - SG7/EWG
 
@@ -244,6 +242,9 @@ entities.
 21.12.4.2 paragraph 2.1 seeems to already handle alias templates.
 
 TBD: do we reflect on variables?
+
+AXEL: check whether template aliases are allowed; if so add to get_name
+AXEL: add variable templates to add_name
 
 
 ## CA 32 060 (21.12.04.3 p2) - CWG
@@ -263,6 +264,19 @@ TBD: do we reflect on variables?
 TBD. This sounds like a good idea. The scope of a class template template
 parameter should be the class template and the scope of a function template
 template parameter should be the function.
+
+What is the scope of these `T`s?
+
+```
+template <class T> T var = func((reflexpr(T)*)nullptr); 
+template <class T> T bar = func((reflexpr(T)*)nullptr);
+```
+
+See 6.3.9 Template parameter scope [basic.scope.temp]
+
+We need to introduce that as the scope of template parameters...
+which in turn give access to the entity (class, function, variable) 
+
 
 **Needs wording**
 
@@ -327,6 +341,9 @@ Suggestion to accept this request.
 ## CA 1 085 (General) - SG7/LEWG
 
 TBD. I do not understand this unfortunately. This seems like a LWG issue?
+
+AXEL will send email to Ville, this looks like a Core issue (we don't need a definition of align_val_t for these reflext ops, do we need to `#include <new>` nonetheless?)
+
 
 ---
 references:
