@@ -68,6 +68,35 @@ using ABC_r = reflexpr(ABC);
 
 ## CA 5 011 (10.01.7.2) - CWG
 
+Suggest to accept the proposed change.
+
+Modify 10.1.7.2 as follows:
+
+> | *reflexpr-operand:*
+> |    `::`
+> :::rm
+> |    *type-id*
+> |    *nested-name-specifier~opt~* *identifier*
+> |    *nested-name-specifier~opt~* *simple-template-id*
+> :::
+> :::add
+> |    *id-expression*
+> :::
+
+Modify 10.1.7.6 as follows:
+
+> For an operand of the form [*identifier*]{.rm}[*id-expression*]{.add} where[*identifier*]{.rm}[*id-expression*]{.add} is a template *type-parameter*,...
+
+Modify the caption of Table 12 as follows:
+
+> `reflect` concept (21.12.3) that the type specified by a *reflexpr-specifier* satisfies, for a given
+[*reflexpr-operand identifier* or *simple-template-id*]{.rm}[*id-expression*]{.add}.
+
+Modify the description of the second column of Table 12 as follows:
+
+> [*identifier* or *simple-template-id* kind]{.rm}[kind of name denoted by *id-expression*]{.add}
+
+
 ## CH 013 (10.01.7.6) - CWG
 
 ## CA 12 016 (10.01.7.6 p1) - CWG
