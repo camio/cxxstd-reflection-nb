@@ -39,6 +39,11 @@ Suggest to accept the proposed change with modification, to clarify that *alias*
 
 ## CA 4 008 (08) - CWG
 
+Suggest to reject the proposed change: the type specified by a *reflexpr-specifier* satisfies `Constant` only if the  *reflexpr-operand* is the name of a constexpr variable or an enumerator.
+
+(Note that the example provided as part of CA 4 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
+
+
 ## PL 009 (10.01.7.2, 10.1.7.6) - CWG
 
 ## CH 010 (10.01.7.2) - SG7/EWG
