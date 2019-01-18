@@ -309,6 +309,13 @@ Modify 21.12.2 as follows:
 
 ## PL 035 (21.12.02) - CWG
 
+Suggest to reject. As 21.12.3.27 notes:
+
+> Some types that satisfy `Constructor` also satisfy `SpecialMemberFunction`.
+
+The definition of `SpecialMemberFunction` (21.12.3.27) uses "special member function (Clause 15)"
+and thus clearly includes special member functions that are constructors.
+
 ## PL 036 (21.12.02) - SG7/EWG
 
 ## CH 039 (21.12.02, 21.12.3.9) - CWG
