@@ -267,6 +267,46 @@ TBD: Suggest to include members injected through using declarations; their scope
 
 ## CH 032 (21.12.02) - CWG
 
+Suggest to accept the proposed change.
+
+Modify 21.12.2 as follows:
+
+```diff
+- template <class T>
++ template <Object T>
+  constexpr auto is_public_v = is_public<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_protected_v = is_protected<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_private_v = is_private<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_constexpr_v = is_constexpr<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_static_v = is_static<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_final_v = is_final<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_explicit_v = is_explicit<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_inline_v = is_inline<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_virtual_v = is_virtual<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto is_pure_virtual_v = is_pure_virtual<T>::value;
+- template <class T>
++ template <Object T>
+   constexpr auto get_pointer_v = get_pointer<T>::value;
+```
+
 ## PL 035 (21.12.02) - CWG
 
 ## PL 036 (21.12.02) - SG7/EWG
