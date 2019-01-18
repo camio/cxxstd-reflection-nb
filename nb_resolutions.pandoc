@@ -200,6 +200,69 @@ template <class T>
 
 ## CA 16 030 (21.12) - CWG
 
+Suggest to accept the proposed change.
+
+Modify 21.12.3.6 as follows:
+
+```diff
+- template <class T> concept Enumerator = Typed<T> && ScopeMember<T> && see below;
++ template <class T> concept Enumerator = Constant<T> && see below;
+```
+
+Modify 21.12.3.7 as follows:
+
+```diff
+- template <class T> concept Variable = Typed<T> && see below;
++ template <class T> concept Variable = Typed<T> && ScopeMember<T> && see below;
+```
+
+Modify 21.12.3.9 as follows:
+
+```diff
+- template <class T> concept Typed = Named<T> && see below;
++ template <class T> concept Typed = Named<T> && ScopeMember<T> && see below;
+```
+
+Modify 21.12.3.10 as follows:
+
+```diff
+- template <class T> concept Namespace = Scope<T> && see below;
++ template <class T> concept Namespace = Named<T> && Scope<T> && see below;
+```
+
+Modify 21.12.3.17 as follows:
+
+```diff
+- template <class T> concept Constant = ScopeMember<T> && Typed<T> && see below;
++ template <class T> concept Constant = Typed<T> && ScopeMember<T> && see below;
+```
+> Constant<T> is true if and only if T reflects a constant expression (8.6) [or an enumerator]{.add}.
+
+
+Modify 21.12.3.20 as follows (for consistency's sake):
+
+```diff
+- template <class T> concept Callable = ScopeMember<T> && Scope<T> && see below;
++ template <class T> concept Callable = Scope<T> && ScopeMember<T> && see below;
+```
+
+Modify 21.12.3.25 as follows (for consistency's sake):
+
+```diff
+- template <class T> concept Function = Callable<T> && Typed<T> && see below;
++ template <class T> concept Function = Typed<T> && Callable<T> && see below;
+```
+
+Modify 21.12.3.31 as follows (for consistency's sake):
+
+```diff
+- template <class T> concept ConversionOperator = Operator<T> && MemberFunction<T> && see below;
++ template <class T> concept ConversionOperator = MemberFunction<T> && Operator<T> && see below;
+```
+
+
+
+
 ## CA 15 031 (21.12) - SG7/EWG
 
 ## CH 032 (21.12.02) - CWG
