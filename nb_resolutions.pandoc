@@ -329,6 +329,10 @@ See CA 16 030.
 
 ## CH 040 (21.12.03) - SG7/EWG
 
+Suggest to accept the proposed modification by adding the following note to 21.12.03:
+
+> [[ *Note:* unlike `std::is_enum`, `std::reflect::is_enum` operates on meta-object types. --- *end note* ]]{.add}
+
 ## CH 041 (21.12.3)/CH 072 (21.12.04.5) - SG7/EWG
 
 See 21.12.4.5. This is the proper use of namespacing and do not expect
