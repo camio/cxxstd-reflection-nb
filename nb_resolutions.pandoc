@@ -138,6 +138,7 @@ Suggest to accept the proposed change. Modify 10.01.7.6 as follows:
 Suggest to accept the proposed change with modification. Modify 10.01.7.6 as follows:
 
 > An entity or alias [`A`]{.rm}[`B`]{.add} is *reflection-related* to an entity or alias [`B`]{.rm}[`A`]{.add} if
+>
 > - `A` and `B` are the same entity or alias,
 > - `A` is a variable or enumerator and `B` is the type of `A`,
 > - `A` is an enumeration and `B` is the underlying type of `A`,
