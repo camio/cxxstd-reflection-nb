@@ -318,6 +318,11 @@ and thus clearly includes special member functions that are constructors.
 
 ## PL 036 (21.12.02) - SG7/EWG
 
+Suggest to reject the proposed change of renaming the concept `Object` to `Metaobject`:
+
+The meta-nature of `std::reflect::Object` is stated by the namespace it is defined in.
+There is no need to repeat this meta-nature by prepending "Meta".
+
 ## CH 039 (21.12.02, 21.12.3.9) - CWG
 
 ## CH 040 (21.12.03) - SG7/EWG
