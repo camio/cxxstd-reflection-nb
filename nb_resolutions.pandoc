@@ -171,6 +171,12 @@ Modify 10.1.7.6 as follows:
 
 ## CH 026 (17.07.2.1 p09.10) - CWG
 
+Suggest to accept to proposed modification of 17.7.2.1:
+
+> - denoted by `reflexpr(`*operand*`)`, where *operand* designates a dependent type or a member
+of an unknown specialization [or a value-dependent constant expression]{.add}.
+
+
 ## CA 13 027 (17.07.2.1 p1) - CWG
 
 ## CH 029 (21.12) - CWG
