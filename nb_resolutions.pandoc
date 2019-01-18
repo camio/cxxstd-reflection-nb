@@ -261,9 +261,9 @@ Modify 21.12.3.31 as follows (for consistency's sake):
 ```
 
 
-
-
 ## CA 15 031 (21.12) - SG7/EWG
+
+TBD: Suggest to include members injected through using declarations; their scope is that of the original declaration.
 
 ## CH 032 (21.12.02) - CWG
 
