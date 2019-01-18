@@ -157,9 +157,11 @@ Suggest to accept the proposed change with modification. Modify 10.01.7.6 as fol
 
 ## US 024 (10.01.7.6 p1) - CWG
 
-Suggest to reject. Many other occurrences of "at block scope" in the standard, e.g. 6.3.10/3.
+Suggest to reject. Many other occurrences of "at block scope" in the standard, e.g. (6.3.10/3).
+The term *entity* is introduced in [basic]/3 as "value, object, reference, structured binding, function, enumerator, type, class member, bit-field, template, template specialization, namespace, or pack" which seems approriate in this context, too.
 
 ## US 025 (10.01.7.6 p1) - CWG
+
 
 ## CH 026 (17.07.2.1 p09.10) - CWG
 
