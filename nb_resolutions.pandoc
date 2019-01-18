@@ -179,6 +179,13 @@ of an unknown specialization [or a value-dependent constant expression]{.add}.
 
 ## CA 13 027 (17.07.2.1 p1) - CWG
 
+Suggest to accept the proposed modification of 17.7.2.1.
+
+Add a new bullet after 9.9:
+> - denoted by `reflexpr(`*operand*`)`, where *operand* is a type-dependent expression or a (possibly parenthesized) *functional-type-conv-expression* with at least one type-dependent immediate subexpression, or
+> - ...
+
+
 ## CH 029 (21.12) - CWG
 
 ## CA 16 030 (21.12) - CWG
