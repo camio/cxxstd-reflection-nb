@@ -340,14 +340,7 @@ problems. Suggest no action.
 
 ## CH 041 (21.12.3.10) - SG7/EWG
 
-Suggest to accept this change.
-
-```diff
-- template <class T> concept Namespace = Scope<T> && see below;
-+ template <class T> concept Namespace = Named<T> && Scope<T> && see below;
-```
-
-Test [for the first form]{.add}
+See CA 16 030.
 
 ## CH 042 (21.12.3.18) - SG7/EWG
 
