@@ -220,7 +220,7 @@ Modify 21.12.3.9 as follows:
 
 ```diff
 - template <class T> concept Typed = Named<T> && see below;
-+ template <class T> concept Typed = Named<T> && ScopeMember<T> && see below;
++ template <class T> concept Typed = Object<T> && see below;
 ```
 
 Modify 21.12.3.10 as follows:
@@ -324,6 +324,8 @@ The meta-nature of `std::reflect::Object` is stated by the namespace it is defin
 There is no need to repeat this meta-nature by prepending "Meta".
 
 ## CH 039 (21.12.02, 21.12.3.9) - CWG
+
+See CA 16 030.
 
 ## CH 040 (21.12.03) - SG7/EWG
 
