@@ -349,9 +349,7 @@ See CA 16 030.
 
 ## CH 044 (21.12.03.7) - CWG
 
-## CH 072 (21.12.04.5) - SG7/EWG
-
-This is the proper use of namespacing and we do not expect problems. Suggest no action.
+See CA 16 030.
 
 ## CA 19 045 (21.12.04) - CWG
 
@@ -417,6 +415,8 @@ AXEL: add variable templates to add_name
 ## CA 26 066 (21.12.04.3 p2) - CWG
 
 ## CA 24 068 (21.12.04.3 p2) - CWG
+
+## CH 072 (21.12.04.5) - SG7/EWG
 
 ## CH 074 (21.12.04.6) - SG7/EWG
 
