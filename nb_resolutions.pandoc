@@ -107,8 +107,7 @@ Modify 10.1.7.6 as follows:
 
 ## CA 12 016 (10.01.7.6 p1) - CWG
 
-TBD: should a constant expression (`1+foo('a')`) be allowed as a *reflexpr-operand*?
-NO: we want to leave the door open for expression reflection
+Suggest to reject the proposed change. We want to leave the door open for expression reflection.
 
 ## CA 11 017 (10.01.7.6 p1) - CWG
 
@@ -342,8 +341,7 @@ See CA 16 030.
 
 ## CH 042 (21.12.3.18) - SG7/EWG
 
-This is a misunderstanding. A 'base' in this case has a class which is
-accessible with `get_class`. This class then has a name. Suggest no action.
+This is a misunderstanding. A 'base' in this case has a class which is accessible with `get_class`. This class then has a name. Suggest no action.
 
 ## CH 043 (21.12.03.6) - CWG
 
@@ -351,8 +349,7 @@ accessible with `get_class`. This class then has a name. Suggest no action.
 
 ## CH 072 (21.12.04.5) - SG7/EWG
 
-This is the proper use of namespacing and we do not expect problems. Suggest no
-action.
+This is the proper use of namespacing and we do not expect problems. Suggest no action.
 
 ## CA 19 045 (21.12.04) - CWG
 
@@ -360,9 +357,7 @@ action.
 
 ## PL 047 (21.12.04) - SG7/EWG
 
-It is unclear how (or if) such a thing can be implemented. At any rate, this is
-something that can be added in the future if we get implementation experience
-that suggests this is possible and desirable.
+It is unclear how (or if) such a thing can be implemented. At any rate, this is something that can be added in the future if we get implementation experience that suggests this is possible and desirable.
 
 ## CA 20 049 (21.12.04.1) - CWG
 
@@ -377,7 +372,21 @@ AXEL: bogus; explain why current wording is approriate / precise enough
 
 ## PL 054 (21.12.04.18) - SG7/EWG
 
-DAVID: accept for override.
+Accept.
+
+> \pnum{1} All specializations of these templates shall meet the
+> `UnaryTypeTrait` requirements (23.15.1). If their template
+> parameter reflects a member function that is `static` (for
+> `is_static`), `const` (for `is_const`),
+> `volatile` (for `is_volatile`), declared with a
+> *ref-qualifier* `&` (for
+> `has_lvalueref_qualifier`) or `&&` (for
+> `has_rvalueref_qualifier`), implicitly or explicitly `virtual`
+> (for `is_virtual`), pure virtual (for `is_pure_virtual`), or
+> [marked with `override`]{.rm}[overrides a member function of a base class]{.add} (for `is_override`) or `final`
+> (for `is_final`), the base characteristic of the respective
+> template specialization is `true_type`, otherwise it is
+> `false_type`.
 
 ## CH 057 (21.12.04.3 p2.1) - SG7/EWG
 
@@ -425,8 +434,7 @@ See 6.3.9 Template parameter scope [basic.scope.temp]
 We need to introduce that as the scope of template parameters...
 which in turn give access to the entity (class, function, variable) 
 
-
-**Needs wording**
+AXEL: Come up with wording
 
 ## US 075 (21.12.04.6) - CWG
 
@@ -436,8 +444,13 @@ which in turn give access to the entity (class, function, variable)
 
 This sounds like a good idea.
 
-**Needs wording**
+AXEL: Come up with wording
 
+<!--
+This is a straightforward extension, perhaps whoever wants this can write a
+paper? I'm thinking we should reject.
+- DJS 1/19/19
+-->
 
 ## CH 080 (21.12.04.9) - SG7/EWG
 
@@ -499,7 +512,6 @@ template <template <class...> class Tpl, ObjectSequence T>
 TBD. I do not understand this unfortunately. This seems like a LWG issue?
 
 AXEL will send email to Ville, this looks like a Core issue (we don't need a definition of align_val_t for these reflext ops, do we need to `#include <new>` nonetheless?)
-
 
 ---
 references:
