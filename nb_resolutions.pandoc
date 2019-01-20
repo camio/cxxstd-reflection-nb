@@ -353,6 +353,15 @@ See CA 16 030.
 
 ## CA 19 045 (21.12.04) - CWG
 
+Suggest to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
+
+Add a new sentence after 21.12.4.3/5:
+
+> ::: add
+> \pnum{6} The value of the NTBS is first formed using the basic source character set (with *universal-character-names* as necessary) then mapped in the manner applied to string literals with no encoding prefix in phases 5 and 6 of translation.
+> :::
+
+
 ## CA 18 046 (21.12.04) - CWG
 
 ## PL 047 (21.12.04) - SG7/EWG
