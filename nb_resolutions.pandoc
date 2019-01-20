@@ -571,15 +571,24 @@ Modify 21.12.4.23 as follows:
 
 ## CH 079 (21.12.04.9) - SG7/EWG
 
-This sounds like a good idea.
+The lack of an interface to determine thread-local storage duration is surprising; we recommend to accept the proposed modification.
 
-AXEL: Come up with wording
+Modify 21.12.2 as follows:
 
-<!--
-This is a straightforward extension, perhaps whoever wants this can write a
-paper? I'm thinking we should reject.
-- DJS 1/19/19
--->
+```diff
+template <Variable T> struct is_static<T>;
++ template <Variable T> struct is_thread_local;
+template <Variable T> struct get_pointer<T>;
+```
+
+Modify paragraph 4 of 21.12.4.9 as follows:
+
+> \pnum{3} `template <Variable T> struct is_static<T>;`
+>
+> \pnum{ } [`template <Variable T> struct is_thread_local;`]{.add}
+>
+> All specializations of `is_static<T>` [and `is_thread_local<T>`]{.add} shall meet the `UnaryTypeTrait` requirements (23.15.1). If `T` reflects a variable with static [(for `is_static`) or thread (for `is_thread_local`)]{.add} storage duration, the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`.
+
 
 ## CH 080 (21.12.04.9) - SG7/EWG
 
