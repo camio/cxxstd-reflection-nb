@@ -462,9 +462,13 @@ identifier introduced by a *type-parameter* or]{.rm} a type name introduced by a
 
 Then insert a new bullet (2.4.2), moving the existing (2.4.2) to (2.4.3) etc:
 
-> \pnum{2.4.2} - for `T` reflecting a `TemplateTypeParameter`, the identifier introduced by a *type-parameter*.]{.add}
+> \pnum{2.4.2} - for `T` reflecting a *type-parameter*, the identifier introduced by the *type-parameter*.]{.add}
 
 ## CA 24 068 (21.12.04.3 p2) - CWG
+
+Recommend to accept, by applying the following modification to 21.12.4.3:
+
+> 
 
 ## CH 072 (21.12.04.5) - SG7/EWG
 
