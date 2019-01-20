@@ -235,7 +235,7 @@ Modify 21.12.3.17 as follows:
 - template <class T> concept Constant = ScopeMember<T> && Typed<T> && see below;
 + template <class T> concept Constant = Typed<T> && ScopeMember<T> && see below;
 ```
-> Constant<T> is true if and only if T reflects a constant expression (8.6) [or an enumerator]{.add}.
+> Constant<T> is true if and only if T reflects a constant expression (8.6) [, an enumerator, or a `constexpr` variable]{.add}.
 
 
 Modify 21.12.3.20 as follows (for consistency's sake):
