@@ -265,6 +265,8 @@ Modify 21.12.3.31 as follows (for consistency's sake):
 
 TBD: Suggest to include members injected through using declarations; their scope is that of the original declaration.
 
+AXEL: Deal with this
+
 ## CH 032 (21.12.02) - CWG
 
 Suggest to accept the proposed change.
@@ -333,14 +335,10 @@ Suggest to accept the proposed modification by adding the following note to 21.1
 
 > [[ *Note:* unlike `std::is_enum`, `std::reflect::is_enum` operates on meta-object types. --- *end note* ]]{.add}
 
-## CH 041 (21.12.3)/CH 072 (21.12.04.5) - SG7/EWG
-
-See 21.12.4.5. This is the proper use of namespacing and do not expect
-problems. Suggest no action.
-
 ## CH 041 (21.12.3.10) - SG7/EWG
 
 See CA 16 030.
+
 
 ## CH 042 (21.12.3.18) - SG7/EWG
 
@@ -350,6 +348,11 @@ accessible with `get_class`. This class then has a name. Suggest no action.
 ## CH 043 (21.12.03.6) - CWG
 
 ## CH 044 (21.12.03.7) - CWG
+
+## CH 072 (21.12.04.5) - SG7/EWG
+
+This is the proper use of namespacing and we do not expect problems. Suggest no
+action.
 
 ## CA 19 045 (21.12.04) - CWG
 
