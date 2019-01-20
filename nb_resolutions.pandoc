@@ -424,13 +424,11 @@ entities.
 
 ## CH 058 (21.12.04.3) - SG7/EWG
 
-21.12.4.2 paragraph 2.1 seeems to already handle alias templates.
+Recommend to accept, by applying the following modification to 21.12.4.3:
 
-TBD: do we reflect on variables?
+> \pnum{2.4.2} - for `T` reflecting a specialization of a class[, function or variable ]{.add} template, its template-name;
 
-AXEL: check whether template aliases are allowed; if so add to get_name
-AXEL: add variable templates to add_name
-
+Template aliases are not supported by N4766.
 
 ## CA 32 060 (21.12.04.3 p2) - CWG
 
