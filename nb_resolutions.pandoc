@@ -654,11 +654,50 @@ template <template <class...> class Tpl, ObjectSequence T>
 +   using unpack_sequence_t = typename unpack_sequence<Tpl, T>::type;
 ```
 
-## CA 1 085 (General) - SG7/LEWG
+## CA 1 085 (General) - SG7/LEWG; recommend: CWG!
 
-TBD. I do not understand this unfortunately. This seems like a LWG issue?
+The authors believe that this comment should be addressed to CWG, rather than SG7/LEWG.
 
-AXEL will send email to Ville, this looks like a Core issue (we don't need a definition of align_val_t for these reflext ops, do we need to `#include <new>` nonetheless?)
+The authors recommend that the TS does not need a definition of `align_val_t` for the code example in the NB comment:
+
+```cpp
+#include <experimental/reflect>
+#include <stdio.h>
+#include <stdlib.h>
+struct A {
+  template <typename T> operator T();
+};
+template <typename T>
+A::operator T() {
+  using std::experimental::reflect;
+  printf("%s\n", get_name_v<get_scope_t<get_aliased_t<reflexpr(T)>>>);
+  exit(0);
+}
+int main(void) {
+  (void) ::operator new(sizeof(int), A());
+}
+```
+
+None of the operations require a complete type. If they did, the code would be ill-formed.
+
+Regarding the spelling of the type name, 6.6.4.4 states:
+
+> The implicit declarations do not introduce the names `std`, `std::size_t`, `std::align_val_t`,...
+> However, referring to `std` or `std::size_t` or `std::align_val_t` is ill-formed unless the name
+> has been declared by including the appropriate header.
+
+The example code provided in the NB comment does not *refer* to `std::align_val_t`; it uses an implicit declaration of a function
+and the spelling of one of its parameter types. This usage is similar to the usage of the parameter type for this implementation of the conversion function:
+
+```cpp
+template <typename T>
+A::operator T() {
+  printf(__PRETTY_FUNCTION__);
+  exit(0);
+}
+```
+This, too, does not require the inclusion of "the appropriate header".
+
 
 # Acknowledgements
 
