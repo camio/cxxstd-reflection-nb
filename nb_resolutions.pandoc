@@ -27,11 +27,11 @@ See GB 086.
 
 ## CH 005 (06p1) - CWG
 
-Suggest to reject the proposed change, in favor of the conflicting solution proposed in CH 006.
+Recommend to reject the proposed change, in favor of the conflicting solution proposed in CH 006.
 
 ## CH 006 (06p1) - CWG
 
-Suggest to accept the proposed change with modification, to clarify that *alias* refers exclusively to types:
+Recommend to accept the proposed change with modification, to clarify that *alias* refers exclusively to types:
 
 > Rename all occurrences of *alias* to *type-alias* throughout the document.
 
@@ -39,14 +39,14 @@ Suggest to accept the proposed change with modification, to clarify that *alias*
 
 ## CA 4 008 (08) - CWG
 
-Suggest to reject the proposed change: the type specified by a *reflexpr-specifier* satisfies `Constant` only if the  *reflexpr-operand* is the name of a constexpr variable or an enumerator.
+Recommend to reject the proposed change: the type specified by a *reflexpr-specifier* satisfies `Constant` only if the  *reflexpr-operand* is the name of a constexpr variable or an enumerator.
 
 (Note that the example provided as part of CA 4 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
 
 
 ## PL 009 (10.01.7.2, 10.1.7.6) - CWG
 
-Suggest to accept the proposed change: while the implementation defines the type, including its name, the TS does not actually specify the types. The use of "unspecified type" would be in line with many other occurrences in the IS (see e.g. [std.manip]).
+Recommend to accept the proposed change: while the implementation defines the type, including its name, the TS does not actually specify the types. The use of "unspecified type" would be in line with many other occurrences in the IS (see e.g. [std.manip]).
 
 Modify 10.1.7.2/3 as follows:
 
@@ -59,7 +59,7 @@ Modify 10.1.7.6/3 as follows:
 
 ## CH 010 (10.01.7.2) - SG7/EWG
 
-Suggest to reject the proposed change, with the rationale to allow future extensions reflecting templates. For those, a leading `template` specifier could be useful. The example's intent can instead be achieved using an intermediary alias:
+Recommend to reject the proposed change, with the rationale to allow future extensions reflecting templates. For those, a leading `template` specifier could be useful. The example's intent can instead be achieved using an intermediary alias:
 
 ```
 using ABC = A::template B<C>;
@@ -68,7 +68,7 @@ using ABC_r = reflexpr(ABC);
 
 ## CA 5 011 (10.01.7.2) - CWG
 
-Suggest to accept the proposed change.
+Recommend to accept the proposed change.
 
 Modify 10.1.7.2 as follows:
 
@@ -99,7 +99,7 @@ Modify the description of the second column of Table 12 as follows:
 
 ## CH 013 (10.01.7.6) - CWG
 
-Suggest to accept the proposed change.
+Recommend to accept the proposed change.
 
 Modify 10.1.7.6 as follows:
 
@@ -107,11 +107,11 @@ Modify 10.1.7.6 as follows:
 
 ## CA 12 016 (10.01.7.6 p1) - CWG
 
-Suggest to reject the proposed change. We want to leave the door open for expression reflection.
+Recommend to reject the proposed change. We want to leave the door open for expression reflection.
 
 ## CA 11 017 (10.01.7.6 p1) - CWG
 
-Suggest to accept the proposed change.
+Recommend to accept the proposed change.
 
 Add the following line to Table 12, as the last row in the "type" Category:
 
@@ -122,7 +122,7 @@ Add the following line to Table 12, as the last row in the "type" Category:
 
 ## CA 9 019 (10.01.7.6 p1) - CWG
 
-Suggest to accept the proposed change. Modify 10.01.7.6 as follows:
+Recommend to accept the proposed change. Modify 10.01.7.6 as follows:
 
 > :::rm
 > For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
@@ -134,7 +134,7 @@ Suggest to accept the proposed change. Modify 10.01.7.6 as follows:
 
 ## CA 7 021 (10.01.7.6 p1) - CWG
 
-Suggest to accept the proposed change with modification. Modify 10.01.7.6 as follows:
+Recommend to accept the proposed change with modification. Modify 10.01.7.6 as follows:
 
 > An entity or alias [`A`]{.rm}[`B`]{.add} is *reflection-related* to an entity or alias [`B`]{.rm}[`A`]{.add} if
 >
@@ -157,12 +157,12 @@ Suggest to accept the proposed change with modification. Modify 10.01.7.6 as fol
 
 ## US 024 (10.01.7.6 p1) - CWG
 
-Suggest to reject. Many other occurrences of "at block scope" in the standard, e.g. (6.3.10/3).
+Recommend to reject. Many other occurrences of "at block scope" in the standard, e.g. (6.3.10/3).
 The term *entity* is introduced in [basic]/3 as "value, object, reference, structured binding, function, enumerator, type, class member, bit-field, template, template specialization, namespace, or pack" which seems approriate in this context, too.
 
 ## US 025 (10.01.7.6 p1) - CWG
 
-Suggest to accept proposal with modification:
+Recommend to accept proposal with modification:
 
 Modify 10.1.7.6 as follows:
 
@@ -170,7 +170,7 @@ Modify 10.1.7.6 as follows:
 
 ## CH 026 (17.07.2.1 p09.10) - CWG
 
-Suggest to accept to proposed modification of 17.7.2.1:
+Recommend to accept to proposed modification of 17.7.2.1:
 
 > - denoted by `reflexpr(`*operand*`)`, where *operand* designates a dependent type or a member
 of an unknown specialization [or a value-dependent constant expression]{.add}.
@@ -178,7 +178,7 @@ of an unknown specialization [or a value-dependent constant expression]{.add}.
 
 ## CA 13 027 (17.07.2.1 p1) - CWG
 
-Suggest to accept the proposed modification of 17.7.2.1.
+Recommend to accept the proposed modification of 17.7.2.1.
 
 Add a new bullet after 9.9:
 > - denoted by `reflexpr(`*operand*`)`, where *operand* is a type-dependent expression or a (possibly parenthesized) *functional-type-conv-expression* with at least one type-dependent immediate subexpression, or
@@ -187,7 +187,7 @@ Add a new bullet after 9.9:
 
 ## CH 029 (21.12) - CWG
 
-Suggest to accept the proposed modification of 21.12.2:
+Recommend to accept the proposed modification of 21.12.2:
 
 For every `constexpr` variable defined in 21.12.2, add the `inline` specifier as in the following example:
 
@@ -199,7 +199,7 @@ template <class T>
 
 ## CA 16 030 (21.12) - CWG
 
-Suggest to accept the proposed change.
+Recommend to accept the proposed change.
 
 Modify 21.12.3.6 as follows:
 
@@ -268,7 +268,7 @@ AXEL: Deal with this
 
 ## CH 032 (21.12.02) - CWG
 
-Suggest to accept the proposed change.
+Recommend to accept the proposed change.
 
 Modify 21.12.2 as follows:
 
@@ -310,7 +310,7 @@ Modify 21.12.2 as follows:
 
 ## PL 035 (21.12.02) - CWG
 
-Suggest to reject. As 21.12.3.27 notes:
+Recommend to reject. As 21.12.3.27 notes:
 
 > Some types that satisfy `Constructor` also satisfy `SpecialMemberFunction`.
 
@@ -319,7 +319,7 @@ and thus clearly includes special member functions that are constructors.
 
 ## PL 036 (21.12.02) - SG7/EWG
 
-Suggest to reject the proposed change of renaming the concept `Object` to `Metaobject`:
+Recommend to reject the proposed change of renaming the concept `Object` to `Metaobject`:
 
 The meta-nature of `std::reflect::Object` is stated by the namespace it is defined in.
 There is no need to repeat this meta-nature by prepending "Meta".
@@ -330,7 +330,7 @@ See CA 16 030.
 
 ## CH 040 (21.12.03) - SG7/EWG
 
-Suggest to accept the proposed modification by adding the following note to 21.12.03:
+Recommend to accept the proposed modification by adding the following note to 21.12.03:
 
 > [[ *Note:* unlike `std::is_enum`, `std::reflect::is_enum` operates on meta-object types. --- *end note* ]]{.add}
 
@@ -353,7 +353,7 @@ See CA 16 030.
 
 ## CA 19 045 (21.12.04) - CWG
 
-Suggest to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
+Recommend to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
 
 Add a new sentence after 21.12.4.3/5:
 
