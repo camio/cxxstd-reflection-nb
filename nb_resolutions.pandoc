@@ -692,7 +692,7 @@ and the spelling of one of its parameter types. This usage is similar to the usa
 ```cpp
 template <typename T>
 A::operator T() {
-  printf(__PRETTY_FUNCTION__);
+  printf(std::experimental::source_location::current().function_name());
   exit(0);
 }
 ```
