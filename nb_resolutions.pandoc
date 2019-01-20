@@ -382,6 +382,10 @@ In 21.12.4.1, apply the following changes:
 
 ## CH 050 (21.12.04.10 p1) - CWG
 
+Recommend to accept the proposed modification, by applying the following change to 21.12.4.10:
+
+> \pnum{1} ... The nested type named `type` is an alias to `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4)]{.add} reflected by `T`.
+
 ## CA 36 052 (21.12.04.16 p1) - CWG
 
 ## CA 35 053 (21.12.04.16) - SG7/EWG
