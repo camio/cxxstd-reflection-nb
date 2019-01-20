@@ -262,9 +262,9 @@ Modify 21.12.3.31 as follows (for consistency's sake):
 
 ## CA 15 031 (21.12) - SG7/EWG
 
-TBD: Suggest to include members injected through using declarations; their scope is that of the original declaration.
+Recommend to accept the proposed change by modifying 21.12.4.7 as follows:
 
-AXEL: Deal with this
+> \pnum{1} A specialization of any of these templates with a meta-object type that is reflecting an incomplete type renders the program ill-formed. Such errors are not in the immediate context (17.9.2). [Members introduced by using declarations (10.3.3) are included in the sequences below where applicable; the `Scope` of these members remains that of their original declaration.]{.add}
 
 ## CH 032 (21.12.02) - CWG
 
