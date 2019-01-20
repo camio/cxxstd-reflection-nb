@@ -432,6 +432,10 @@ Template aliases are not supported by N4766.
 
 ## CA 32 060 (21.12.04.3 p2) - CWG
 
+Recommend to accept, by applying the following modification to 21.12.4.3:
+
+> \pnum{2.4.2} - for `T` reflecting a specialization of a class[, function or variable ]{.add} template, its template-name;
+
 ## CA 31 061 (21.12.04.3 p2) - CWG
 
 ## CA 28 064 (21.12.04.3 p2) - CWG
