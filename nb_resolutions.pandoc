@@ -468,6 +468,39 @@ See CH 058.
 
 ## CH 072 (21.12.04.5) - SG7/EWG
 
+Recommend to accept: `struct` and `class` are conceptually the same, and `std::reflect::is_struct` wrongly suggests
+the need of `std::is_struct`. To clearly distinguish the `std::is_class` type trait from these meta functions, we recommend to rename them as proposed in the NB comment.
+
+Apply the following modification to 21.12.2:
+
+```diff
+- template <Type T> struct is_class;
++ template <Type T> struct uses_class_key;
+- template <Type T> struct is_struct;
++ template <Type T> struct uses_struct_key;
+template <Type T> struct is_union;
+template <Typed T>
+  using get_type_t = typename get_type<T>::type;
+template <Type T>
+  using get_reflected_type_t = typename get_reflected_type<T>::type;
+template <Type T>
+  constexpr auto is_enum_v = is_enum<T>::value;
+template <Type T>
+-  constexpr auto is_class_v = is_class<T>::value;
++  constexpr auto is_class_v = uses_class_key<T>::value;
+template <Type T>
+-  constexpr auto is_struct_v = is_struct<T>::value;
++  constexpr auto is_struct_v = uses_struct_key<T>::value;
+```
+
+Apply the following modification to 21.12.4.5:
+
+> `template <Type T> struct` [`is_class`]{.rm}[`uses_class_key`]{.add}`;`
+
+> `template <Type T> struct` [`is_struct`]{.rm}[`uses_struct_key`]{.add}`;`
+
+> \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{`.add}<T>` shall meet the `UnaryTypeTrait` require ments (23.15.1). If `T` reflects a class with *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`. If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{.add}<T> can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.
+
 ## CH 074 (21.12.04.6) - SG7/EWG
 
 TBD. This sounds like a good idea. The scope of a class template template
