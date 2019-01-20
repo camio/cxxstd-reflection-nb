@@ -539,6 +539,10 @@ Add the following sentence to the end of 21.12.4.6, paragraph 2:
 
 ## US 075 (21.12.04.6) - CWG
 
+Recommend to accept the proposed change, by modifying 21.12.4.6 as follows:
+
+> \pnum{2} ... class scope, enumeration scope, function scope [(in the case where the function’s parameters)]{.rm}, or ...
+
 ## CH 078 (21.12.04.7 and many others) - CWG
 
 ## CH 079 (21.12.04.9) - SG7/EWG
