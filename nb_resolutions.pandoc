@@ -483,6 +483,14 @@ Suggestion to accept this request.
 
 ## CH 056 (21.12.04.2) - SG7/LWG
 
+Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
+
+```diff
+template <template <class...> class Tpl, ObjectSequence T>
+-   constexpr auto unpack_sequence_t = unpack_sequence<Tpl, T>::type;
++   using unpack_sequence_t = typename unpack_sequence<Tpl, T>::type;
+```
+
 ## CA 1 085 (General) - SG7/LEWG
 
 TBD. I do not understand this unfortunately. This seems like a LWG issue?
