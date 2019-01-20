@@ -372,6 +372,14 @@ It is unclear how (or if) such a thing can be implemented. At any rate, this is 
 
 ## CA 20 049 (21.12.04.1) - CWG
 
+Recommend to accept with modification, to match e.g. "subsequent redeclaration" in 10.6.4.:
+
+In 21.12.4.1, apply the following changes:
+
+>  \pnum{3} ... representing some offset from the start of the line (for `get_source_column<T>`) of the most recent [re]{.add}declaration of the entity or typedef described by `T`.
+
+>  \pnum{4} ... The value of the NTBS is the presumed name of the source file (19.8) of the most recent [re]{.add}declaration of the entity or typedef described by `T`.
+
 ## CH 050 (21.12.04.10 p1) - CWG
 
 ## CA 36 052 (21.12.04.16 p1) - CWG
