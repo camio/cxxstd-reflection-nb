@@ -400,7 +400,7 @@ In the NB comment's example, `get_constructor_t<reflexpr(T{"Popeye"})>` is insta
 
 ## PL 054 (21.12.04.18) - SG7/EWG
 
-Accept.
+Recommend to accept.
 
 > \pnum{1} All specializations of these templates shall meet the
 > `UnaryTypeTrait` requirements (23.15.1). If their template
