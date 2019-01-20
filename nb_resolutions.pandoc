@@ -364,6 +364,8 @@ Add a new sentence after 21.12.4.3/5:
 
 ## CA 18 046 (21.12.04) - CWG
 
+No recommendation from the authors.
+
 ## PL 047 (21.12.04) - SG7/EWG
 
 It is unclear how (or if) such a thing can be implemented. At any rate, this is something that can be added in the future if we get implementation experience that suggests this is possible and desirable.
