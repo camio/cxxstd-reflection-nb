@@ -592,9 +592,7 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 
 ## CH 080 (21.12.04.9) - SG7/EWG
 
-This sounds like a good idea. The wording is in the proposed change.
-
-Add new paragraph after paragraph 4:
+Recommend to accept the proposed change, by adding a new paragraph after paragraph 4:
 
 > ::: add
 > \pnum{5} `reflect::get_pointer<T>` is ill-formed if `T` reflects a reference
