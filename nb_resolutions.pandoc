@@ -545,6 +545,30 @@ Recommend to accept the proposed change, by modifying 21.12.4.6 as follows:
 
 ## CH 078 (21.12.04.7 and many others) - CWG
 
+Recommend to accept the proposed change.
+
+Modify 21.12.4.7 as follows:
+
+> \pnum{2} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `RecordMember` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `RecordMember` and]{.add} reflect the following subset of non-template members of the class reflected by `T`:
+
+> \pnum{5} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `RecordMember` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `RecordMember` and]{.add} reflect the following subset of function members of the class reflected by `T`:
+
+> \pnum{10} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `Type` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `Type` and]{.add} reflect the following subset of types declared in the class reflected by `T`:
+
+> \pnum{13} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `Base` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `Base` and]{.add} reflect the following subset of base classes of the class reflected by `T`:
+
+Modify 21.12.4.8 as follows:
+
+> \pnum{2} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `Enumerator` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `Enumerator` and]{.add} reflect the enumerators of the enumeration type reflected by `T`. ...
+
+Modify 21.12.4.13 as follows:
+
+> \pnum{1} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `FunctionParameter` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `FunctionParameter` and]{.add} reflect the parameters of the function reflected by `T`. ...
+
+Modify 21.12.4.23 as follows:
+
+> \pnum{1} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `LambdaCapture` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `LambdaCapture` and]{.add} reflect the captures of the closure object reflected by `T`. ...
+
 ## CH 079 (21.12.04.9) - SG7/EWG
 
 This sounds like a good idea.
