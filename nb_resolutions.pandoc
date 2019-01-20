@@ -602,6 +602,13 @@ Recommend to accept the proposed change, by adding a new paragraph after paragra
 
 ## CH 082 (Annex C) - CWG
 
+Recommend to accept the proposed change, by editing paragraph 1 in C.5.1 Clause 5: lexical conventions [diff.cpp17.lex]:
+
+> \pnum{1} The `concept` keyword is added to enable the definition of concepts
+(17.6.8). [The `reflexpr` keyword is added to introduce meta-data through a
+*reflexpr-specifier*.]{.add}
+
+
 ## GB 083 (Annex C) - CWG
 
 ## GB 084 (Annex C) - CWG
