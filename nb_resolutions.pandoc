@@ -426,7 +426,7 @@ entities.
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
-> \pnum{2.4.2} - for `T` reflecting a specialization of a class[, function or variable ]{.add} template, its template-name;
+> \pnum{2.4.2} - for `T` reflecting a specialization of a class[, function  (except for operators including literal operators, conversion functions, or constructors) or variable ]{.add} template, its template-name;
 
 Template aliases are not supported by N4766.
 
@@ -434,15 +434,13 @@ Template aliases are not supported by N4766.
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
-> \pnum{2.4.2} - for `T` reflecting a specialization of a class[, function or variable ]{.add} template, its template-name;
-
-## CA 31 061 (21.12.04.3 p2) - CWG
-
-Recommend to accept, by applying the following modification to 21.12.4.3:
-
 > \pnum{2.4.15} - for `T` reflecting an operator function, the *operator* element of the relevant *operator-
 function-id*[; or, in the case of a literal operator, the string `"\"\"" ` followed by the *literal suffix identifier* of the operator's *literal-operator-id*, followed by a terminating `'\0'` character]{.add};
 
+
+## CA 31 061 (21.12.04.3 p2) - CWG
+
+See CH 058.
 
 ## CA 28 064 (21.12.04.3 p2) - CWG
 
