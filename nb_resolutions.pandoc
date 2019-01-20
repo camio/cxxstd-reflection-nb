@@ -446,6 +446,10 @@ function-id*[; or, in the case of a literal operator, the string `"\"\"" ` follo
 
 ## CA 28 064 (21.12.04.3 p2) - CWG
 
+Recommend to accept, by applying the following modification to 21.12.4.3:
+
+> \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2);
+
 ## CA 27 065 (21.12.04.3 p2) - CWG
 
 ## CA 26 066 (21.12.04.3 p2) - CWG
