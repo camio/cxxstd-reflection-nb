@@ -392,8 +392,11 @@ No recommendation from the authors.
 
 ## CA 35 053 (21.12.04.16) - SG7/EWG
 
-AXEL: bogus; explain why current wording is approriate / precise enough
+Recommend to reject the proposed change: the current wording states (21.12.4.16):
 
+> For a type conversion reflected by `T`, the nested type named `type` is the `Constructor` reflecting the constructor of the type specified by the type conversion, as selected by overload resolution.
+
+In the NB comment's example, `get_constructor_t<reflexpr(T{"Popeye"})>` is instantiated with `T` being `const S&`; the "type specified by the type conversion" is thus `S`. The constructors under consideration are those of `S`, and the one "selected by overload resolution" is `S::S(const std::string&)`.
 
 ## PL 054 (21.12.04.18) - SG7/EWG
 
