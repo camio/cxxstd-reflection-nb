@@ -4,7 +4,7 @@ document: D1390R0
 date: 2019-01-10
 audience: SG7/Evolution/LEWG/LWG/Core
 author:
-  - name: Matus Chochlik
+  - name: Matúš Chochlík
     email: <chochlik@gmail.com>
   - name: Axel Naumann
     email: <Axel.Naumann@cern.ch>
@@ -524,8 +524,8 @@ references:
     citation-label: N4766
     title: "Working Draft, C++ Extensions for Reflection"
     author:
-      - family: Chochlik
-        given: Matus
+      - family: Chochlík
+        given: Matúš
       - family: Naumann
         given: Axel
       - family: Sankel
