@@ -181,6 +181,7 @@ of an unknown specialization [or a value-dependent constant expression]{.add}.
 Recommend to accept the proposed modification of 17.7.2.1.
 
 Add a new bullet after 9.9:
+
 > - denoted by `reflexpr(`*operand*`)`, where *operand* is a type-dependent expression or a (possibly parenthesized) *functional-type-conv-expression* with at least one type-dependent immediate subexpression, or
 > - ...
 
