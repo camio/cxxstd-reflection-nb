@@ -1,6 +1,6 @@
 ---
 title: "Suggested Reflection TS NB Resolutions"
-document: D1390R0
+document: D1390R1
 date: 2019-01-10
 audience: SG7/Evolution/LEWG/LWG/Core
 author:
@@ -21,7 +21,7 @@ This paper contains resolution suggestions to national body comments issued in
 
 # Suggested core resolutions (EWG / CWG)
 
-## CH 004 (04.03) - SG10/CWG
+## CH 004 (04.3) - SG10/CWG
 
 See GB 086.
 
@@ -44,7 +44,7 @@ Recommend to reject the proposed change: the type specified by a *reflexpr-speci
 (Note that the example provided as part of CA 4 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
 
 
-## PL 009 (10.01.7.2, 10.1.7.6) - CWG
+## PL 009 (10.1.7.2, 10.1.7.6) - CWG
 
 Recommend to accept the proposed change: while the implementation defines the type, including its name, the TS does not actually specify the types. The use of "unspecified type" would be in line with many other occurrences in the IS (see e.g. [std.manip]).
 
@@ -57,7 +57,7 @@ Modify 10.1.7.6/3 as follows:
 > The type specified by the *reflexpr-specifier* is [implementation-defined]{.rm}[unspecified]{.add}.
 
 
-## CH 010 (10.01.7.2) - SG7/EWG
+## CH 010 (10.1.7.2) - SG7/EWG
 
 Recommend to reject the proposed change, with the rationale to allow future extensions reflecting templates. For those, a leading `template` specifier could be useful. The example's intent can instead be achieved using an intermediary alias:
 
@@ -66,7 +66,7 @@ using ABC = A::template B<C>;
 using ABC_r = reflexpr(ABC);
 ```
 
-## CA 5 011 (10.01.7.2) - CWG
+## CA 5 011 (10.1.7.2) - CWG
 
 Recommend to accept the proposed change.
 
@@ -97,7 +97,7 @@ Modify the description of the second column of Table 12 as follows:
 > [*identifier* or *simple-template-id* kind]{.rm}[kind of name denoted by *id-expression*]{.add}
 
 
-## CH 013 (10.01.7.6) - CWG
+## CH 013 (10.1.7.6) - CWG
 
 Recommend to accept the proposed change.
 
@@ -105,11 +105,11 @@ Modify 10.1.7.6 as follows:
 
 > If the *reflexpr-operand* designates an entity or alias at block scope (6.3.3) or function [prototype]{.rm}[parameter]{.add} scope (6.3.4) and...
 
-## CA 12 016 (10.01.7.6 p1) - CWG
+## CA 12 016 (10.1.7.6 p1) - CWG
 
 Recommend to reject the proposed change. We want to leave the door open for expression reflection.
 
-## CA 11 017 (10.01.7.6 p1) - CWG
+## CA 11 017 (10.1.7.6 p1) - CWG
 
 Recommend to accept the proposed change.
 
@@ -120,9 +120,9 @@ Add the following line to Table 12, as the last row in the "type" Category:
 > :::
 
 
-## CA 9 019 (10.01.7.6 p1) - CWG
+## CA 9 019 (10.1.7.6 p1) - CWG
 
-Recommend to accept the proposed change. Modify 10.01.7.6 as follows:
+Recommend to accept the proposed change. Modify 10.1.7.6 as follows:
 
 > :::rm
 > For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
@@ -132,9 +132,9 @@ Recommend to accept the proposed change. Modify 10.01.7.6 as follows:
 > :::
 
 
-## CA 7 021 (10.01.7.6 p1) - CWG
+## CA 7 021 (10.1.7.6 p1) - CWG
 
-Recommend to accept the proposed change with modification. Modify 10.01.7.6 as follows:
+Recommend to accept the proposed change with modification. Modify 10.1.7.6 as follows:
 
 > An entity or alias [`A`]{.rm}[`B`]{.add} is *reflection-related* to an entity or alias [`B`]{.rm}[`A`]{.add} if
 >
@@ -155,12 +155,12 @@ Recommend to accept the proposed change with modification. Modify 10.01.7.6 as f
 
 (Note: the modification to the suggested change consists in the clarification of enclosing classes, and the removal of the superfluous nested class case. The latter is subsumed by "member or base class of `A`".)
 
-## US 024 (10.01.7.6 p1) - CWG
+## US 024 (10.1.7.6 p1) - CWG
 
 Recommend to reject. Many other occurrences of "at block scope" in the standard, e.g. (6.3.10/3).
 The term *entity* is introduced in [basic]/3 as "value, object, reference, structured binding, function, enumerator, type, class member, bit-field, template, template specialization, namespace, or pack" which seems approriate in this context, too.
 
-## US 025 (10.01.7.6 p1) - CWG
+## US 025 (10.1.7.6 p1) - CWG
 
 Recommend to accept proposal with modification:
 
@@ -168,7 +168,7 @@ Modify 10.1.7.6 as follows:
 
 > If the *reflexpr-operand* designates an entity or alias [at]{.rm}[enclosed in a]{.add} block scope (6.3.3) or function prototype scope (6.3.4) and the entity is neither captured nor a function parameter,...
 
-## CH 026 (17.07.2.1 p09.10) - CWG
+## CH 026 (17.7.2.1 p09.10) - CWG
 
 Recommend to accept to proposed modification of 17.7.2.1:
 
@@ -176,7 +176,7 @@ Recommend to accept to proposed modification of 17.7.2.1:
 of an unknown specialization [or a value-dependent constant expression]{.add}.
 
 
-## CA 13 027 (17.07.2.1 p1) - CWG
+## CA 13 027 (17.7.2.1 p1) - CWG
 
 Recommend to accept the proposed modification of 17.7.2.1.
 
@@ -267,7 +267,7 @@ Recommend to accept the proposed change by modifying 21.12.4.7 as follows:
 
 > \pnum{1} A specialization of any of these templates with a meta-object type that is reflecting an incomplete type renders the program ill-formed. Such errors are not in the immediate context (17.9.2). [Members introduced by using declarations (10.3.3) are included in the sequences below where applicable; the `Scope` of these members remains that of their original declaration.]{.add}
 
-## CH 032 (21.12.02) - CWG
+## CH 032 (21.12.2) - CWG
 
 Recommend to accept the proposed change.
 
@@ -309,7 +309,7 @@ Modify 21.12.2 as follows:
    constexpr auto get_pointer_v = get_pointer<T>::value;
 ```
 
-## PL 035 (21.12.02) - CWG
+## PL 035 (21.12.2) - CWG
 
 Recommend to reject. As 21.12.3.27 notes:
 
@@ -318,20 +318,20 @@ Recommend to reject. As 21.12.3.27 notes:
 The definition of `SpecialMemberFunction` (21.12.3.27) uses "special member function (Clause 15)"
 and thus clearly includes special member functions that are constructors.
 
-## PL 036 (21.12.02) - SG7/EWG
+## PL 036 (21.12.2) - SG7/EWG
 
 Recommend to reject the proposed change of renaming the concept `Object` to `Metaobject`:
 
 The meta-nature of `std::reflect::Object` is stated by the namespace it is defined in.
 There is no need to repeat this meta-nature by prepending "Meta".
 
-## CH 039 (21.12.02, 21.12.3.9) - CWG
+## CH 039 (21.12.2, 21.12.3.9) - CWG
 
 See CA 16 030.
 
-## CH 040 (21.12.03) - SG7/EWG
+## CH 040 (21.12.3) - SG7/EWG
 
-Recommend to accept the proposed modification by adding the following note to 21.12.03:
+Recommend to accept the proposed modification by adding the following note to 21.12.3:
 
 > [[ *Note:* unlike `std::is_enum`, `std::reflect::is_enum` operates on meta-object types. --- *end note* ]]{.add}
 
@@ -344,15 +344,15 @@ See CA 16 030.
 
 This is a misunderstanding. A 'base' in this case has a class which is accessible with `get_class`. This class then has a name. Suggest no action.
 
-## CH 043 (21.12.03.6) - CWG
+## CH 043 (21.12.3.6) - CWG
 
 See CA 16 030.
 
-## CH 044 (21.12.03.7) - CWG
+## CH 044 (21.12.3.7) - CWG
 
 See CA 16 030.
 
-## CA 19 045 (21.12.04) - CWG
+## CA 19 045 (21.12.4) - CWG
 
 Recommend to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
 
@@ -363,15 +363,15 @@ Add a new sentence after 21.12.4.3/5:
 > :::
 
 
-## CA 18 046 (21.12.04) - CWG
+## CA 18 046 (21.12.4) - CWG
 
 No recommendation from the authors.
 
-## PL 047 (21.12.04) - SG7/EWG
+## PL 047 (21.12.4) - SG7/EWG
 
 It is unclear how (or if) such a thing can be implemented. At any rate, this is something that can be added in the future if we get implementation experience that suggests this is possible and desirable.
 
-## CA 20 049 (21.12.04.1) - CWG
+## CA 20 049 (21.12.4.1) - CWG
 
 Recommend to accept with modification, to match e.g. "subsequent redeclaration" in 10.6.4.:
 
@@ -381,17 +381,17 @@ In 21.12.4.1, apply the following changes:
 
 >  \pnum{4} ... The value of the NTBS is the presumed name of the source file (19.8) of the most recent [re]{.add}declaration of the entity or typedef described by `T`.
 
-## CH 050 (21.12.04.10 p1) - CWG
+## CH 050 (21.12.4.10 p1) - CWG
 
 Recommend to accept the proposed modification, by applying the following change to 21.12.4.10:
 
 > \pnum{1} ... The nested type named `type` is an alias to `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4)]{.add} reflected by `T`.
 
-## CA 36 052 (21.12.04.16 p1) - CWG
+## CA 36 052 (21.12.4.16 p1) - CWG
 
 No recommendation from the authors.
 
-## CA 35 053 (21.12.04.16) - SG7/EWG
+## CA 35 053 (21.12.4.16) - SG7/EWG
 
 Recommend to reject the proposed change: the current wording states (21.12.4.16):
 
@@ -399,7 +399,7 @@ Recommend to reject the proposed change: the current wording states (21.12.4.16)
 
 In the NB comment's example, `get_constructor_t<reflexpr(T{"Popeye"})>` is instantiated with `T` being `const S&`; the "type specified by the type conversion" is thus `S`. The constructors under consideration are those of `S`, and the one "selected by overload resolution" is `S::S(const std::string&)`.
 
-## PL 054 (21.12.04.18) - SG7/EWG
+## PL 054 (21.12.4.18) - SG7/EWG
 
 Recommend to accept.
 
@@ -417,13 +417,13 @@ Recommend to accept.
 > template specialization is `true_type`, otherwise it is
 > `false_type`.
 
-## CH 057 (21.12.04.3 p2.1) - SG7/EWG
+## CH 057 (21.12.4.3 p2.1) - SG7/EWG
 
 This is already the existing behavior and lambda objects are specifically
 called out. See Section 21.12.4.3 paragraph 2.5. Lambda objects are not unnamed
 entities.
 
-## CH 058 (21.12.04.3) - SG7/EWG
+## CH 058 (21.12.4.3) - SG7/EWG
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
@@ -431,7 +431,7 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 
 Template aliases are not supported by N4766.
 
-## CA 32 060 (21.12.04.3 p2) - CWG
+## CA 32 060 (21.12.4.3 p2) - CWG
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
@@ -439,17 +439,17 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 function-id*[; or, in the case of a literal operator, the string `"\"\"" ` followed by the *literal suffix identifier* of the operator's *literal-operator-id*, followed by a terminating `'\0'` character]{.add};
 
 
-## CA 31 061 (21.12.04.3 p2) - CWG
+## CA 31 061 (21.12.4.3 p2) - CWG
 
 See CH 058.
 
-## CA 28 064 (21.12.04.3 p2) - CWG
+## CA 28 064 (21.12.4.3 p2) - CWG
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
 > \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2);
 
-## CA 27 065 and CA 26 066 (21.12.04.3 p2) - CWG
+## CA 27 065 and CA 26 066 (21.12.4.3 p2) - CWG
 
 For CA 26 066, see also CH 075.
 
@@ -463,11 +463,11 @@ Then insert a new bullet (2.4.2), moving the existing (2.4.2) to (2.4.3) etc:
 
 > \pnum{2.4.2} - for `T` reflecting a *type-parameter*, the identifier introduced by the *type-parameter*.]{.add}
 
-## CA 24 068 (21.12.04.3 p2) - CWG
+## CA 24 068 (21.12.4.3 p2) - CWG
 
 See CH 058.
 
-## CH 072 (21.12.04.5) - SG7/EWG
+## CH 072 (21.12.4.5) - SG7/EWG
 
 Recommend to accept: `struct` and `class` are conceptually the same, and `std::reflect::is_struct` wrongly suggests
 the need of `std::is_struct`. To clearly distinguish the `std::is_class` type trait from these meta functions, we recommend to rename them as proposed in the NB comment.
@@ -502,7 +502,7 @@ Apply the following modification to 21.12.4.5:
 
 > \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{`.add}<T>` shall meet the `UnaryTypeTrait` require ments (23.15.1). If `T` reflects a class with *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`. If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{.add}<T> can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.
 
-## CH 074 (21.12.04.6) - SG7/EWG
+## CH 074 (21.12.4.6) - SG7/EWG
 
 To allow future extensions of template reflection, we recommend to accept this comment with modification.
 
@@ -538,13 +538,13 @@ Add the following sentence to the end of 21.12.4.6, paragraph 2:
 > \pnum{2} ... For template *type-parameter*s, this innermost scope is the `TemplateArgumentList` representing the template parameter scope in which they have been declared.
 :::
 
-## US 075 (21.12.04.6) - CWG
+## US 075 (21.12.4.6) - CWG
 
 Recommend to accept the proposed change, by modifying 21.12.4.6 as follows:
 
 > \pnum{2} ... class scope, enumeration scope, function scope [(in the case where the function’s parameters)]{.rm}, or ...
 
-## CH 078 (21.12.04.7 and many others) - CWG
+## CH 078 (21.12.4.7 and many others) - CWG
 
 Recommend to accept the proposed change.
 
@@ -570,7 +570,7 @@ Modify 21.12.4.23 as follows:
 
 > \pnum{1} ... The nested type named `type` is an alias to [an `ObjectSequence` specialized with `LambdaCapture` types that]{.rm}[a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `LambdaCapture` and]{.add} reflect the captures of the closure object reflected by `T`. ...
 
-## CH 079 (21.12.04.9) - SG7/EWG
+## CH 079 (21.12.4.9) - SG7/EWG
 
 The lack of an interface to determine thread-local storage duration is surprising; we recommend to accept the proposed modification.
 
@@ -591,7 +591,7 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 > All specializations of `is_static<T>` [and `is_thread_local<T>`]{.add} shall meet the `UnaryTypeTrait` requirements (23.15.1). If `T` reflects a variable with static [(for `is_static`) or thread (for `is_thread_local`)]{.add} storage duration, the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`.
 
 
-## CH 080 (21.12.04.9) - SG7/EWG
+## CH 080 (21.12.4.9) - SG7/EWG
 
 Recommend to accept the proposed change, by adding a new paragraph after paragraph 4:
 
@@ -639,13 +639,13 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 
 # Suggested library resolutions (LEWG/LWG)
 
-## CA 14 028 (20.05.1) - LEWG
+## CA 14 028 (20.5.1) - LEWG
 
 Suggestion to accept this request.
 
 * Add `<experimental/reflect>` to Table 19 referenced by 20.5.1.3.
 
-## CH 056 (21.12.04.2) - SG7/LWG
+## CH 056 (21.12.4.2) - SG7/LWG
 
 Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
 
