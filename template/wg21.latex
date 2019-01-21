@@ -322,11 +322,13 @@ $endif$
 Document \#:&$document$\\
 Date:       &$date$\\
 Project:    &Programming Language C++\\
-            &$audience$\\
+            $for(audience)$&$audience$\\$endfor$
 $if(revises)$
 Revises:    &$revises$\\
 $endif$
-Reply-to:   $for(author)$&$author.name$\\&<$author.email$>\\$endfor$
+Reply-to:   $for(author)$&$author.name$\\
+              $for(author.email)$&<$author.email$>\\$endfor$
+            $endfor$
     \end{tabular}
   \end{flushright}
 }
