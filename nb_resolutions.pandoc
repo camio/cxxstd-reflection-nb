@@ -694,7 +694,6 @@ references:
       - family: "Secretariat: ANSI (United States)"
     issued:
       year: 2018
-    URL: http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/n5325.pdf
   - id: PBLOG
     citation-label: PBLOG
     title: "How I format my C++ papers"
