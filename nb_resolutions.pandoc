@@ -31,11 +31,31 @@ Recommend to reject the proposed change, in favor of the conflicting solution pr
 
 ## CH 006 (06p1) - CWG
 
-Recommend to accept the proposed change with modification, to clarify that *alias* refers exclusively to types:
+Recommend to reject the proposed change. The term *alias* can als refer to variable aliases.
 
-> Rename all occurrences of *alias* to *type-alias* throughout the document.
+Clarify by modifying the example in 21.12.3.4:
 
-(Note: the modification consists of the added hyphen in "*type-alias*".)
+```diff
+  namespace N {
+     struct A;
+  }
+  namespace M {
+     using X = N::A;
+  }
++ struct B {
++    int i;
++ };
++ struct C {
++    using B::i;
++ };
+  using M_X_t = reflexpr(M::X);
+  using M_X_scope_t = get_scope_t<M_X_t>;
++ using C_i_t = reflexpr(C::i);
++ using C_i_scope_t = get_scope_t<C_i_t>;
+```
+
+> The scope reflected by `M_X_scope_t` is `M`, not `N`[; the scope reflected by `C_i_scope_t` is `C`, not `B`]{.add}.
+
 
 ## CA 008 (08) - CWG
 
