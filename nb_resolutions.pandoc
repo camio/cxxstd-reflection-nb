@@ -59,7 +59,21 @@ Clarify by modifying the example in 21.12.3.4:
 
 ## CA 008 (08) - CWG
 
-Recommend to reject the proposed change: the type specified by a *reflexpr-specifier* satisfies `Constant` only if the  *reflexpr-operand* is the name of a constexpr variable or an enumerator.
+Recommend to accept the proposed change with modification.
+
+Insert a new bullet 8.5, adjusting the subsequent bullet numbers:
+
+>:::add
+> \pnum{8.5} --- a *reflexpr-operand*,
+>:::
+
+Modify 10.1.7.6 as follows:
+
+> Any other *reflexpr-operand* renders the program ill-formed.
+>
+> [If the *reflexp-operand* of the form *id-expression* is a constant expression, the type specified by the *reflexpr-specifier* also satisfies `reflect::Constant`.]{.add}
+
+
 
 (Note that the example provided as part of CA 4 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
 
