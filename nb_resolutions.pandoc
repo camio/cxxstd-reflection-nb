@@ -37,7 +37,7 @@ Recommend to accept the proposed change with modification, to clarify that *alia
 
 (Note: the modification consists of the added hyphen in "*type-alias*".)
 
-## CA 4 008 (08) - CWG
+## CA 008 (08) - CWG
 
 Recommend to reject the proposed change: the type specified by a *reflexpr-specifier* satisfies `Constant` only if the  *reflexpr-operand* is the name of a constexpr variable or an enumerator.
 
@@ -66,7 +66,7 @@ using ABC = A::template B<C>;
 using ABC_r = reflexpr(ABC);
 ```
 
-## CA 5 011 (10.1.7.2) - CWG
+## CA 011 (10.1.7.2) - CWG
 
 Recommend to accept the proposed change.
 
@@ -105,11 +105,11 @@ Modify 10.1.7.6 as follows:
 
 > If the *reflexpr-operand* designates an entity or alias at block scope (6.3.3) or function [prototype]{.rm}[parameter]{.add} scope (6.3.4) and...
 
-## CA 12 016 (10.1.7.6 p1) - CWG
+## CA 016 (10.1.7.6 p1) - CWG
 
 Recommend to reject the proposed change. We want to leave the door open for expression reflection.
 
-## CA 11 017 (10.1.7.6 p1) - CWG
+## CA 017 (10.1.7.6 p1) - CWG
 
 Recommend to accept the proposed change.
 
@@ -120,7 +120,7 @@ Add the following line to Table 12, as the last row in the "type" Category:
 > :::
 
 
-## CA 9 019 (10.1.7.6 p1) - CWG
+## CA 019 (10.1.7.6 p1) - CWG
 
 Recommend to accept the proposed change. Modify 10.1.7.6 as follows:
 
@@ -132,7 +132,7 @@ Recommend to accept the proposed change. Modify 10.1.7.6 as follows:
 > :::
 
 
-## CA 7 021 (10.1.7.6 p1) - CWG
+## CA 021 (10.1.7.6 p1) - CWG
 
 Recommend to accept the proposed change with modification. Modify 10.1.7.6 as follows:
 
@@ -176,7 +176,7 @@ Recommend to accept to proposed modification of 17.7.2.1:
 of an unknown specialization [or a value-dependent constant expression]{.add}.
 
 
-## CA 13 027 (17.7.2.1 p1) - CWG
+## CA 027 (17.7.2.1 p1) - CWG
 
 Recommend to accept the proposed modification of 17.7.2.1.
 
@@ -198,7 +198,7 @@ template <class T>
 + inline constexpr auto is_public_v = is_public<T>::value;
 ```
 
-## CA 16 030 (21.12) - CWG
+## CA 030 (21.12) - CWG
 
 Recommend to accept the proposed change.
 
@@ -261,7 +261,7 @@ Modify 21.12.3.31 as follows (for consistency's sake):
 ```
 
 
-## CA 15 031 (21.12) - SG7/EWG
+## CA 031 (21.12) - SG7/EWG
 
 Recommend to accept the proposed change by modifying 21.12.4.7 as follows:
 
@@ -352,7 +352,7 @@ See CA 16 030.
 
 See CA 16 030.
 
-## CA 19 045 (21.12.4) - CWG
+## CA 045 (21.12.4) - CWG
 
 Recommend to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
 
@@ -363,7 +363,7 @@ Add a new sentence after 21.12.4.3/5:
 > :::
 
 
-## CA 18 046 (21.12.4) - CWG
+## CA 046 (21.12.4) - CWG
 
 No recommendation from the authors.
 
@@ -371,7 +371,7 @@ No recommendation from the authors.
 
 It is unclear how (or if) such a thing can be implemented. At any rate, this is something that can be added in the future if we get implementation experience that suggests this is possible and desirable.
 
-## CA 20 049 (21.12.4.1) - CWG
+## CA 049 (21.12.4.1) - CWG
 
 Recommend to accept with modification, to match e.g. "subsequent redeclaration" in 10.6.4.:
 
@@ -387,11 +387,11 @@ Recommend to accept the proposed modification, by applying the following change 
 
 > \pnum{1} ... The nested type named `type` is an alias to `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4)]{.add} reflected by `T`.
 
-## CA 36 052 (21.12.4.16 p1) - CWG
+## CA 052 (21.12.4.16 p1) - CWG
 
 No recommendation from the authors.
 
-## CA 35 053 (21.12.4.16) - SG7/EWG
+## CA 053 (21.12.4.16) - SG7/EWG
 
 Recommend to reject the proposed change: the current wording states (21.12.4.16):
 
@@ -431,7 +431,7 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 
 Template aliases are not supported by N4766.
 
-## CA 32 060 (21.12.4.3 p2) - CWG
+## CA 060 (21.12.4.3 p2) - CWG
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
@@ -439,17 +439,17 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 function-id*[; or, in the case of a literal operator, the string `"\"\"" ` followed by the *literal suffix identifier* of the operator's *literal-operator-id*, followed by a terminating `'\0'` character]{.add};
 
 
-## CA 31 061 (21.12.4.3 p2) - CWG
+## CA 061 (21.12.4.3 p2) - CWG
 
 See CH 058.
 
-## CA 28 064 (21.12.4.3 p2) - CWG
+## CA 064 (21.12.4.3 p2) - CWG
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
 > \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2);
 
-## CA 27 065 and CA 26 066 (21.12.4.3 p2) - CWG
+## CA 065 and CA 26 066 (21.12.4.3 p2) - CWG
 
 For CA 26 066, see also CH 075.
 
@@ -463,7 +463,7 @@ Then insert a new bullet (2.4.2), moving the existing (2.4.2) to (2.4.3) etc:
 
 > \pnum{2.4.2} - for `T` reflecting a *type-parameter*, the identifier introduced by the *type-parameter*.]{.add}
 
-## CA 24 068 (21.12.4.3 p2) - CWG
+## CA 068 (21.12.4.3 p2) - CWG
 
 See CH 058.
 
@@ -639,7 +639,7 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 
 # Suggested library resolutions (LEWG/LWG)
 
-## CA 14 028 (20.5.1) - LEWG
+## CA 028 (20.5.1) - LEWG
 
 Suggestion to accept this request.
 
@@ -655,7 +655,7 @@ template <template <class...> class Tpl, ObjectSequence T>
 +   using unpack_sequence_t = typename unpack_sequence<Tpl, T>::type;
 ```
 
-## CA 1 085 (General) - SG7/LEWG; recommend: CWG!
+## CA 085 (General) - SG7/LEWG; recommend: CWG!
 
 The authors believe that this comment should be addressed to CWG, rather than SG7/LEWG.
 
