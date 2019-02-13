@@ -94,27 +94,89 @@ Modify 10.1.7.2 as follows:
 
 > | *reflexpr-operand:*
 > |    `::`
-> :::rm
 > |    *type-id*
+> :::rm
 > |    *nested-name-specifier~opt~* *identifier*
 > |    *nested-name-specifier~opt~* *simple-template-id*
 > :::
 > :::add
+> |    *nested-name-specifier~opt~* *namespace-name*
 > |    *id-expression*
 > :::
 
 Modify 10.1.7.6 as follows:
 
-> For an operand of the form [*identifier*]{.rm}[*id-expression*]{.add} where[*identifier*]{.rm}[*id-expression*]{.add} is a template *type-parameter*,...
+>:::rm
+> For an operand that is a parenthesized expression (8.4.3), the type satisfies `reflect::ParenthesizedExpression`. For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
+>
+> For an operand of the form *function-call-expression*, the type satisfies `reflect::FunctionCallExpression`. If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
+>
+> For an operand of the form *functional-type-conv-expression* (8.5.1.3), the type satisfies 
+> `reflect::FunctionalTypeConversion`. [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
+>
+> For an operand of the form *identifier* where *identifier* is a template *type-parameter*, the type satisfies both `reflect::Type` and `reflect::Alias`.
+>:::
+> [The *identifier* or *simple-template-id* is looked up using the rules for name lookup (6.4): if a *nested-name-specifier* is included in the operand, qualified lookup (6.4.3) of *nested-name-specifier* *identifier* or *nested-name-specifier* *simple-template-id* will be performed, otherwise unqualified lookup (6.4.1) of *identifier* or *simple-template-id* will be performed.]{.rm} The type specified by the *reflexpr-specifier* satisfies concepts depending on the result of [the]{.rm} name lookup, as shown in Table 12.
+>
+> [If the *reflexpr-operand* designates a *type-id* not explicitly mentioned in Table 12, the type represented by the *reflexpr-specifier* satisfies `reflect::Type`.]{.rm} Any other *reflexpr-operand* renders the program ill-formed.
+
 
 Modify the caption of Table 12 as follows:
 
-> `reflect` concept (21.12.3) that the type specified by a *reflexpr-specifier* satisfies, for a given
-[*reflexpr-operand identifier* or *simple-template-id*]{.rm}[*id-expression*]{.add}.
+> `reflect` concept (21.12.3) that the type specified by a *reflexpr-specifier* satisfies, for a given *reflexpr-operand*
+[ *identifier* or *simple-template-id*]{.rm}.
 
-Modify the description of the second column of Table 12 as follows:
+Replace Table 12 by the following table:
 
-> [*identifier* or *simple-template-id* kind]{.rm}[kind of name denoted by *id-expression*]{.add}
++------------+------------------------------------------------------+------------------------------------------------+
+| Category   | *reflexpr-operand*                                   | `reflect` Concept                              |
++============+======================================================+================================================+
+| Type       | *class-name* designating a union                     | `reflect::Record`                              |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *class-name* designating a closure type              | `reflect::Lambda`                              |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *class-name* designating a non-union class           | `reflect::Class`                               |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *enum-name*                                          | `reflect::Enum`                                |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | template *type-parameter*                            | both `reflect::Type` and `reflect::Alias`      |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *type-name* introduced by a *using-declaration*      | both `reflect::Type` and `reflect::Alias`      |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | any other *typedef-name*                             | both `reflect::Type` and `reflect::Alias`      |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | any other *type-id*                                  | both `reflect::Type`                           |
++------------+------------------------------------------------------+------------------------------------------------+
+| Namespace  | *namespace-alias*                                    | both `reflect::Namespace` and `reflect::Alias` |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | any other *namespace-name*                           | `reflect::Namespace`                           |
++------------+------------------------------------------------------+------------------------------------------------+
+| Expression | the name of a data member                            | `reflect::Variable`                            |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | the name of a variable or structured binding         | `reflect::Variable`                            |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | the name of an enumerator                            | `reflect::Enumerator`                          |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | the name of a function parameter                     | `reflect::FunctionParameter`                   |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | the name of a captured entity                        | `reflect::LambdaCapture`                       |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | parenthesized expression; see Note A, below          | `reflect::ParenthesizedExpression`             |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *function-call-expression*; see Note B, below        | `reflect::FunctionCallExpression`            |
++------------+------------------------------------------------------+------------------------------------------------+
+|            | *functional-type-conv-expression*; see Note C, below | `reflect::FunctionalTypeConversion`            |
++------------+------------------------------------------------------+------------------------------------------------+
+
+Add the following new paragraph after the table:
+
+>:::add
+> Note A) For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression*, or a *functional-type-conv-expression*; otherwise the program is ill-formed.
+>
+> Note B) If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
+>
+> Note C) [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
+>:::
 
 
 ## CH 013 (10.1.7.6) - CWG
