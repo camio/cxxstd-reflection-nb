@@ -769,10 +769,9 @@ Recommend to accept the proposed change, by adding the following sentence at the
 
 Recommend to accept the proposed change, by editing paragraph 1 in C.5.1 Clause 5: lexical conventions [diff.cpp17.lex]:
 
-> \pnum{1} The `concept` keyword is added to enable the definition of concepts
-(17.6.8). [The `reflexpr` keyword is added to introduce meta-data through a
-*reflexpr-specifier*.]{.add}
-
+> \pnum{1} **Rationale:** Required for new features. The `requires` keyword is added to introduce constraints through a *requires-clause* or a *requires-expression*. The `concept` keyword is added to enable the definition of concepts (17.6.8). [The `reflexpr` keyword is added to introduce meta-data through a *reflexpr-specifier*.]{.add}
+>
+> **Effect on original feature:** Valid ISO C++ 2017 code using `concept`[ or]{.rm}[,]{.add} `requires`[, or `reflexpr`] as an identifier is not valid in this International Standard.
 
 ## GB 083 (Annex C) - CWG
 
