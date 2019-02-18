@@ -544,7 +544,18 @@ Recommend to accept the proposed modification, by applying the following change 
 
 ## CA 052 (21.12.4.16 p1) - CWG
 
-No recommendation from the authors.
+A key questions to be answered in Kona is how copy-constructors can be reflected on, in a usable way. `reflexpr(X(X()))` does not invoke the copy constructor, due to guaranteed copy elision. `reflexpr(X(declval<X&>()))` does not seem like a usable solution.
+
+Either way, recommend to modify 21.12.4.16 as follows:
+
+> The program is ill-formed if no such constructor [exists]{.rm} [is used]{.add}.
+
+This is meant to address the following case:
+
+```
+struct S{int x,y;};
+using S_m = get_constructor_t<reflexpr(S{1,2})>; // ERROR with above modification
+```
 
 ## CA 053 (21.12.4.16) - SG7/EWG
 
