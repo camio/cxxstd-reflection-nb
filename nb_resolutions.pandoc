@@ -267,7 +267,7 @@ Recommend to accept the proposed change with modification. Modify 10.1.7.6 as fo
 > - `A` is the closure type of the lambda capture `B`,
 > - [`A`]{.rm}[`B`]{.add} is the type specified by the *functional-type-conv-expression* [`B`]{.rm}[`A`]{.add},
 > - [`A`]{.rm}[`B`]{.add} is the function selected by overload resolution for a *function-call-expression* [`B`]{.rm}[`A`]{.add},
-> - [`B`]{.rm}[`A`]{.add} is the return type, parameter type, or function type of the function [`B`]{.rm}[`A`]{.add}, or
+> - [`A`]{.rm}[`B`]{.add} is the return type, parameter type, or function type of the function [`B`]{.rm}[`A`]{.add}, or
 > - [`A`]{.rm}[`B`]{.add} is reflection-related to an entity or alias `X` and `X` is reflection-related to [`B`]{.rm}[`A`]{.add}.
 
 Note: the modification to the suggested change consists in the clarification of enclosing classes, and the removal of the superfluous nested class case. The latter is subsumed by "member or base class of `A`". The resolution was also modified to be such that `A` yields `B`, with a corresponding change in the position of `A` and `B` in the definition of the relation.
