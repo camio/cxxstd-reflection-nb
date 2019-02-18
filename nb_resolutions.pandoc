@@ -451,6 +451,8 @@ Modify 21.12.2 as follows:
    constexpr auto get_pointer_v = get_pointer<T>::value;
 ```
 
+While these templates could be further constrained, the current restriction on `Object` is sufficiently reducing the allowed specializations to those of `reflect` concepts. Even with the constraints above, the operations can be SFINAEd on.
+
 ## PL 035 (21.12.2) - CWG
 
 Recommend to reject. As 21.12.3.27 notes:
