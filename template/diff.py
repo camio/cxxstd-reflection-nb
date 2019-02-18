@@ -27,8 +27,12 @@ More new paragraphs
 """
 
 import panflute as pf
+import re
 
 def action(elem, doc):
+    if isinstance(elem, pf.RawInline) and elem.format == 'tex' and '\pnum{' in elem.text:
+        repl = re.sub(r"\\pnum{([^}]+)}", "<small>(\\1)</small>", elem.text)
+        return pf.RawInline(repl, 'html')
     if not isinstance(elem, pf.Div) and not isinstance(elem, pf.Span):
         return None
 
