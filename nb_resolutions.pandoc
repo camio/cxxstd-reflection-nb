@@ -506,6 +506,7 @@ Add a new sentence after 21.12.4.3/5:
 > \pnum{6} The value of the NTBS is first formed using the basic source character set (with *universal-character-names* as necessary) then mapped in the manner applied to string literals with no encoding prefix in phases 5 and 6 of translation.
 > :::
 
+Note: the resolution here should be should also be applied to @P1208R3.
 
 ## CA 046 (21.12.4) - CWG
 
@@ -517,6 +518,7 @@ Modify 21.12.4.3 as follows:
 
 > \pnum{2} All specializations of `get_name<T>` and `get_display_name<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1) with a static data member named `value` of type `const char (&)[N]`, referencing a static, constant expression character array ([NTBS]{.rm} [NTMBS]{.add}) of length `N`, as if declared as `static constexpr char STR[N] = ...;`.
 
+Note: the resolution here should be should also be applied to @P1208R3.
 
 ## PL 047 (21.12.4) - SG7/EWG
 
@@ -856,4 +858,16 @@ references:
     issued:
       year: 2018
     URL: https://mpark.github.io/programming/2018/11/16/how-i-format-my-cpp-papers/
+  - id: P1208R3
+    citation-label: P1208R3
+    title: "Source-Code Information Capture"
+    author:
+      - family: Douglas
+        given: Robert
+      - family: Jabot
+        given: Corentin
+    issued:
+      year: 2018
+    URL: https://wg21.link/P1208R3
+
 ---
