@@ -756,7 +756,7 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 
 > \pnum{3} `template <Variable T> struct is_static<T>;`
 >
-> \pnum{ } [`template <Variable T> struct is_thread_local;`]{.add}
+> \pnum{4} [`template <Variable T> struct is_thread_local;`]{.add}
 >
 > All specializations of `is_static<T>` [and `is_thread_local<T>`]{.add} shall meet the `UnaryTypeTrait` requirements (23.15.1). If `T` reflects a variable with static [(for `is_static`) or thread (for `is_thread_local`)]{.add} storage duration, the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`.
 
