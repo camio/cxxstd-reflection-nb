@@ -95,12 +95,7 @@ Modify 10.1.7.6 as follows:
 
 ## CH 010 (10.1.7.2) - SG7/EWG
 
-Recommend to reject the proposed change, with the rationale to allow future extensions reflecting templates. For those, a leading `template` specifier could be useful. The example's intent can instead be achieved using an intermediary alias:
-
-```
-using ABC = A::template B<C>;
-using ABC_r = reflexpr(ABC);
-```
+Propose to accept; this grammar is now allowed as part of *id-expression*, see CA 011.
 
 ## CA 011 (10.1.7.2) - CWG
 
