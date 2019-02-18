@@ -31,7 +31,7 @@ Recommend to reject the proposed change, in favor of the conflicting solution pr
 
 ## CH 006 (06p1) - CWG
 
-Recommend to reject the proposed change. The term *alias* can als refer to variable aliases.
+Recommend to reject the proposed change. The term *alias* can also refer to variable aliases.
 
 Clarify by modifying the example in 21.12.3.4:
 
