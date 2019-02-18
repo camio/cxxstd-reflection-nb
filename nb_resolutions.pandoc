@@ -200,7 +200,7 @@ Modify 10.1.7.6 as follows:
 
 ## CA 016 (10.1.7.6 p1) - CWG
 
-Recommend to reject the proposed change. We want to leave the door open for expression reflection.
+Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now explicitly called out by the recommended modification in CA 011.
 
 ## CA 017 (10.1.7.6 p1) - CWG
 
