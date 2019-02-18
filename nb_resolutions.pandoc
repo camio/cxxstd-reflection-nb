@@ -759,12 +759,12 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 
 ## CH 080 (21.12.4.9) - SG7/EWG
 
-Recommend to accept the proposed change, by adding a new paragraph after paragraph 4:
+Recommend to accept the proposed change, by adding the following sentence at the end of paragraph 4:
 
 > ::: add
-> \pnum{5} `reflect::get_pointer<T>` is ill-formed if `T` reflects a reference
+> \pnum{4} ... `reflect::get_pointer<T>` is ill-formed if `T` reflects a reference
 > and the name of the reference in a context with no lvalue-to-rvalue
-> conversion would not be a constant expression."
+> conversion would not be a constant expression.
 > :::
 
 ## CH 082 (Annex C) - CWG
