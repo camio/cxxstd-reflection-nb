@@ -75,7 +75,7 @@ Modify 10.1.7.6 as follows:
 
 
 
-(Note that the example provided as part of CA 4 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
+(Note that the example provided as part of CA 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
 
 
 ## PL 009 (10.1.7.2, 10.1.7.6) - CWG
@@ -471,7 +471,7 @@ There is no need to repeat this meta-nature by prepending "Meta".
 
 ## CH 039 (21.12.2, 21.12.3.9) - CWG
 
-See CA 16 030.
+See CA 030.
 
 ## CH 040 (21.12.3) - SG7/EWG
 
@@ -481,7 +481,7 @@ Recommend to accept the proposed modification by adding the following note to 21
 
 ## CH 041 (21.12.3.10) - SG7/EWG
 
-See CA 16 030.
+See CA 030.
 
 
 ## CH 042 (21.12.3.18) - SG7/EWG
@@ -490,11 +490,11 @@ This is a misunderstanding. A 'base' in this case has a class which is accessibl
 
 ## CH 043 (21.12.3.6) - CWG
 
-See CA 16 030.
+See CA 030.
 
 ## CH 044 (21.12.3.7) - CWG
 
-See CA 16 030.
+See CA 030.
 
 ## CA 045 (21.12.4) - CWG
 
@@ -619,9 +619,9 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 
 > \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2);
 
-## CA 065 and CA 26 066 (21.12.4.3 p2) - CWG
+## CA 065 and CA 066 (21.12.4.3 p2) - CWG
 
-For CA 26 066, see also CH 075.
+For CA 066, see also CH 075.
 
 Recommend to accept, by applying the following modification to 21.12.4.3:
 
