@@ -762,9 +762,7 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 Recommend to accept the proposed change, by adding the following sentence at the end of paragraph 4:
 
 > ::: add
-> \pnum{4} ... `reflect::get_pointer<T>` is ill-formed if `T` reflects a reference
-> and the name of the reference in a context with no lvalue-to-rvalue
-> conversion would not be a constant expression.
+> \pnum{4} ... If `T` reflects a reference, the name of the reference appearing in a context with no lvalue-to-rvalue conversion shall be a constant expression.
 > :::
 
 ## CH 082 (Annex C) - CWG
