@@ -293,9 +293,9 @@ Modify 10.1.7.6 as follows:
 
 Recommend to accept proposal with modification:
 
-Modify 10.1.7.6 as follows:
+Modify 10.1.7.6 as follows (assuming acceptance of the proposed resolution of US 024):
 
-> If the *reflexpr-operand* designates an entity or alias [at]{.rm}[enclosed in a]{.add} block scope (6.3.3) or function prototype scope (6.3.4) and the entity is neither captured nor a function parameter, the program is ill-formed.
+> If the *reflexpr-operand* designates an entity or alias [at]{.rm}[whose declaration is enclosed in a]{.add} block scope (6.3.3) or function prototype scope (6.3.4) and the entity is neither captured nor a function parameter, the program is ill-formed.
 
 ## CH 026 (17.7.2.1 p09.10) - CWG
 
