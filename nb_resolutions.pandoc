@@ -204,14 +204,38 @@ Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now e
 
 ## CA 017 (10.1.7.6 p1) - CWG
 
-Recommend to accept the proposed change.
+Recommend to accept the proposed change. Similar to types represented by the `decltype` specifier, fundamental and *cv*-qualified types must not have a scope either. Only declarations should be `ScopeMember`s.
 
-Add the following line to Table 12, as the last row in the "type" Category:
+Modify Table 12 as follows:
 
-> :::add
-> |     | decltype-specifier | both `reflect::Type` and `reflect::Alias` |
-> :::
+> +---+-------------------------------------------------+-------------------------------------------------------------------------------------------+
+> |   | [*decltype-specifier*]{.add}                    | [both `reflect::Type` and `reflect::Alias`]{.add}                                         |
+> +---+-------------------------------------------------+-------------------------------------------------------------------------------------------+
+> |   | *type-name* introduced by a *using-declaration* | `reflect::Type` [and]{.rm}[,]{.add} `reflect::Alias` [, and `reflect::ScopeMember`]{.add} |
+> +---+-------------------------------------------------+-------------------------------------------------------------------------------------------+
 
+Modify 21.12.2 as follows:
+
+```diff
+- template <class T> concept Enum;    // refines Type and Scope
+- template <class T> concept Record;  // refines Type and Scope
++ template <class T> concept Enum;    // refines Type, Scope, and ScopeMember
++ template <class T> concept Record;  // refines Type, Scope, and ScopeMember
+  template <class T> concept Scope;   // refines Object
+- template <class T> concept Type;    // refines Named and ScopeMember
++ template <class T> concept Type;    // refines Named
+```
+
+Modify 21.12.3.16 as follows:
+
+```diff
+- template <class T> concept Type = Named<T> && ScopeMember<T> && see below;
++ template <class T> concept Type = Named<T> && see below;
+```
+
+Add a note at the end of 21.12.3.16:
+
+> [[ *Note:* Some types `T` also satisfy `ScopeMember`; others, for instance those reflecting *cv*-qualified types or fundamental types, do not. --- *end note* ]]{.add}
 
 ## CA 019 (10.1.7.6 p1) - CWG
 
