@@ -80,15 +80,17 @@ Modify 10.1.7.6 as follows:
 
 ## PL 009 (10.1.7.2, 10.1.7.6) - CWG
 
-Recommend to accept the proposed change: while the implementation defines the type, including its name, the TS does not actually specify the types. The use of "unspecified type" would be in line with many other occurrences in the IS (see e.g. [std.manip]).
+Recommend to accept the proposed change with modifications. Modify 
 
-Modify 10.1.7.2/3 as follows:
+Modify the new final paragraph of 10.1.7.2 as follows:
 
-> For a *reflexpr-operand* `x`, the type denoted by `reflexpr(x)` is an [implementation-defined]{.rm}[unspecified]{.add} type that satisfies the constraints laid out in 10.1.7.6.
+> For a *reflexpr-operand* `x`, the type denoted by `reflexpr(x)` is [an implementation-defined]{.rm} [a]{.add} type that satisfies the constraints laid out in 10.1.7.6.
 
-Modify 10.1.7.6/3 as follows:
+Modify 10.1.7.6 as follows:
 
-> The type specified by the *reflexpr-specifier* is [implementation-defined]{.rm}[unspecified]{.add}.
+> \pnum{1} ... A meta-object type is an [unnamed,]{.add} incomplete namespace-scope class type (Clause 12).
+>
+> ... [The type specified by the reflexpr-specifier is implementation-defined. ]{.rm}
 
 
 ## CH 010 (10.1.7.2) - SG7/EWG
