@@ -1,7 +1,7 @@
 ---
 title: "Suggested Reflection TS NB Resolutions"
 document: D1390R1
-date: 2019-02-17
+date: 2019-02-19
 audience: SG7/Evolution/LEWG/LWG/Core
 author:
   - name: Matúš Chochlík
@@ -396,7 +396,7 @@ Recommend to accept the proposed change with modifications.
 
 Modify 21.12.3.4 as follows:
 
-> \pnum{2} [Except for the type represented by the `reflexpr` operator, `Alias` properties resulting from type transformations (21.12.4) are not retained.](.rm}[Type transformations (21.12.4) never yield an `Alias`; instead, they yield the aliased entity.]{.add}
+> \pnum{2} [Except for the type represented by the `reflexpr` operator, `Alias` properties resulting from type transformations (21.12.4) are not retained.]{.rm}[Type transformations (21.12.4) never yield an `Alias`; instead, they yield the aliased entity.]{.add}
 
 At the end of the paragraph 2 of 21.12.4, add
 
@@ -824,7 +824,7 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 
 Suggestion to accept this request.
 
-* Add `<experimental/reflect>` to Table 19 referenced by 20.5.1.3.
+* Add `<experimental/reflect>` to Table 19 "C++ headers for freestanding implementations" referenced by 20.5.1.3.
 
 ## CH 056 (21.12.4.2) - SG7/LWG
 
