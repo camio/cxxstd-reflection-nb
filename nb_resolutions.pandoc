@@ -667,10 +667,10 @@ template <Type T>
   constexpr auto is_enum_v = is_enum<T>::value;
 template <Type T>
 -  constexpr auto is_class_v = is_class<T>::value;
-+  constexpr auto is_class_v = uses_class_key<T>::value;
++  constexpr auto uses_class_key_v = uses_class_key<T>::value;
 template <Type T>
 -  constexpr auto is_struct_v = is_struct<T>::value;
-+  constexpr auto is_struct_v = uses_struct_key<T>::value;
++  constexpr auto uses_struct_key_v = uses_struct_key<T>::value;
 ```
 
 Apply the following modification to 21.12.4.5:
