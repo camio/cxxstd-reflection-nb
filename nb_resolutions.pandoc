@@ -756,9 +756,16 @@ The lack of an interface to determine thread-local storage duration is surprisin
 Modify 21.12.2 as follows:
 
 ```diff
+template <Constant T> struct get_constant;
+template <Variable T> struct is_constexpr<T>;
 template <Variable T> struct is_static<T>;
 + template <Variable T> struct is_thread_local;
 template <Variable T> struct get_pointer<T>;
+
+template <Constant T>
+         constexpr auto get_constant_v = get_constant<T>::value;
++ template <Variable T>
++          constexpr auto is_thread_local_v = is_thread_local<T>::value;
 ```
 
 Modify paragraph 4 of 21.12.4.9 as follows:
