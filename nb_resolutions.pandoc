@@ -544,7 +544,7 @@ Recommend to accept the proposed modification, by applying the following change 
 
 ## CA 052 (21.12.4.16 p1) - CWG
 
-A key questions to be answered in Kona is how copy-constructors can be reflected on, in a usable way. `reflexpr(X(X()))` does not invoke the copy constructor, due to guaranteed copy elision. `reflexpr(X(declval<X&>()))` does not seem like a usable solution.
+A key questions to be answered in Kona is how copy-constructors can be reflected on, in a usable way. `reflexpr((X(X())))` does not invoke the copy constructor, due to guaranteed copy elision. `reflexpr(X(declval<X&>()))` does not seem like a usable solution.
 
 Either way, recommend to modify 21.12.4.16 as follows:
 
