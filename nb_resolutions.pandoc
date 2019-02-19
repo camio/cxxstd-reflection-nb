@@ -323,9 +323,9 @@ Recommend to accept the proposed modification of 21.12.2:
 For every `constexpr` variable defined in 21.12.2, add the `inline` specifier as in the following example:
 
 ```diff
-template <class T>
-- constexpr auto is_public_v = is_public<T>::value;
-+ inline constexpr auto is_public_v = is_public<T>::value;
+  template <class T>
+-   constexpr auto is_public_v = is_public<T>::value;
++   inline constexpr auto is_public_v = is_public<T>::value;
 ```
 
 ## CA 030 (21.12) - CWG
@@ -366,6 +366,7 @@ Modify 21.12.3.17 as follows:
 - template <class T> concept Constant = ScopeMember<T> && Typed<T> && see below;
 + template <class T> concept Constant = Typed<T> && ScopeMember<T> && see below;
 ```
+
 > Constant<T> is true if and only if T reflects a constant expression (8.6) [, an enumerator, or a `constexpr` variable]{.add}.
 
 
@@ -658,19 +659,19 @@ Apply the following modification to 21.12.2:
 + template <Type T> struct uses_class_key;
 - template <Type T> struct is_struct;
 + template <Type T> struct uses_struct_key;
-template <Type T> struct is_union;
-template <Typed T>
-  using get_type_t = typename get_type<T>::type;
-template <Type T>
-  using get_reflected_type_t = typename get_reflected_type<T>::type;
-template <Type T>
-  constexpr auto is_enum_v = is_enum<T>::value;
-template <Type T>
--  constexpr auto is_class_v = is_class<T>::value;
-+  constexpr auto uses_class_key_v = uses_class_key<T>::value;
-template <Type T>
--  constexpr auto is_struct_v = is_struct<T>::value;
-+  constexpr auto uses_struct_key_v = uses_struct_key<T>::value;
+  template <Type T> struct is_union;
+  template <Typed T>
+    using get_type_t = typename get_type<T>::type;
+  template <Type T>
+    using get_reflected_type_t = typename get_reflected_type<T>::type;
+  template <Type T>
+    constexpr auto is_enum_v = is_enum<T>::value;
+  template <Type T>
+-   constexpr auto is_class_v = is_class<T>::value;
++   constexpr auto uses_class_key_v = uses_class_key<T>::value;
+  template <Type T>
+-   constexpr auto is_struct_v = is_struct<T>::value;
++   constexpr auto uses_struct_key_v = uses_struct_key<T>::value;
 ```
 
 Apply the following modification to 21.12.4.5:
@@ -756,14 +757,14 @@ The lack of an interface to determine thread-local storage duration is surprisin
 Modify 21.12.2 as follows:
 
 ```diff
-template <Constant T> struct get_constant;
-template <Variable T> struct is_constexpr<T>;
-template <Variable T> struct is_static<T>;
+  template <Constant T> struct get_constant;
+  template <Variable T> struct is_constexpr<T>;
+  template <Variable T> struct is_static<T>;
 + template <Variable T> struct is_thread_local;
-template <Variable T> struct get_pointer<T>;
+  template <Variable T> struct get_pointer<T>;
 
-template <Constant T>
-         constexpr auto get_constant_v = get_constant<T>::value;
+  template <Constant T>
+           constexpr auto get_constant_v = get_constant<T>::value;
 + template <Variable T>
 +          constexpr auto is_thread_local_v = is_thread_local<T>::value;
 ```
@@ -847,7 +848,7 @@ Suggestion to accept this request.
 Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
 
 ```diff
-template <template <class...> class Tpl, ObjectSequence T>
+  template <template <class...> class Tpl, ObjectSequence T>
 -   constexpr auto unpack_sequence_t = unpack_sequence<Tpl, T>::type;
 +   using unpack_sequence_t = typename unpack_sequence<Tpl, T>::type;
 ```
