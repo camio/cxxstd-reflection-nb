@@ -819,7 +819,7 @@ The authors believe that this comment should be addressed to CWG, rather than SG
 The authors recommend to add a new final sentence to the last paragraph of 10.1.7.6 as follows:
 
 ::: add
-> Direct or indirect use of the allocation functions [basic.stc.dynamic] as *reflexpr-operand* without inclusion of the header `<new>` is ill-formed.
+> Reflecting directly or indirectly upon an allocation function [basic.stc.dynamic] without inclusion of the header `<new>` is ill-formed; no diagnostic required.
 :::
 
 This allows operations (e.g. `get_scope`) to be well-defined.
