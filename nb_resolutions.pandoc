@@ -317,15 +317,7 @@ Add a new bullet after 9.9:
 
 ## CH 029 (21.12) - CWG
 
-Recommend to accept the proposed modification of 21.12.2:
-
-For every `constexpr` variable defined in 21.12.2, add the `inline` specifier as in the following example:
-
-```diff
-  template <class T>
--   constexpr auto is_public_v = is_public<T>::value;
-+   inline constexpr auto is_public_v = is_public<T>::value;
-```
+Recommend to reject the proposed modification, as `inline` is not needed (has no actual effect).
 
 ## CA 030 (21.12) - CWG
 
