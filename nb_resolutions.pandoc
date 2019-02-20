@@ -288,7 +288,7 @@ void f() {
 
 Modify 10.1.7.6 as follows:
 
-> If the *reflexpr-operand* designates an entity or alias [declared]{.add} at block scope (6.3.3) or function prototype scope (6.3.4) and the entity is neither captured nor a function parameter, the program is ill-formed.
+> If the *reflexpr-operand* designates [an entity or alias]{.rm} [a name declared]{.add} at block scope (6.3.3) or function prototype scope (6.3.4) and the [named]{.add} entity is neither captured nor a function parameter, the program is ill-formed.
 
 
 ## US 025 (10.1.7.6 p1) - CWG
