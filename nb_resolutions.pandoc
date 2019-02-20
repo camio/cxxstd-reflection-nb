@@ -202,7 +202,11 @@ Modify 10.1.7.6 as follows:
 
 ## CA 016 (10.1.7.6 p1) - CWG
 
-Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now explicitly called out by the recommended modifications in CA 011 and CA 030.
+Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now explicitly called out by the recommended modifications in CA 011. Also modify 21.12.3.17 as follows:
+
+> Constant<T> is true if and only if T reflects [a constant expression (8.6)]{.rm} [an enumerator or a `constexpr` variable]{.add}.
+
+
 
 ## CA 017 (10.1.7.6 p1) - CWG
 
@@ -357,9 +361,6 @@ Modify 21.12.3.17 as follows:
 - template <class T> concept Constant = ScopeMember<T> && Typed<T> && see below;
 + template <class T> concept Constant = Typed<T> && ScopeMember<T> && see below;
 ```
-
-> Constant<T> is true if and only if T reflects [a constant expression (8.6)]{.rm} [an enumerator or a `constexpr` variable]{.add}.
-
 
 Modify 21.12.3.20 as follows (for consistency's sake):
 
