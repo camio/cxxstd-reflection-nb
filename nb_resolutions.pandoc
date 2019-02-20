@@ -567,11 +567,20 @@ using S_m = get_constructor_t<reflexpr(S{1,2})>; // ERROR with above modificatio
 
 ## CA 053 (21.12.4.16) - SG7/EWG
 
-Recommend to reject the proposed change: the current wording states (21.12.4.16):
+Recommend to accept the proposed change with modification.
 
-> For a type conversion reflected by `T`, the nested type named `type` is the `Constructor` reflecting the constructor of the type specified by the type conversion, as selected by overload resolution.
+TODO: wording reflecting EWG's guidance:
 
-In the NB comment's example, `get_constructor_t<reflexpr(T{"Popeye"})>` is instantiated with `T` being `const S&`; the "type specified by the type conversion" is thus `S`. The constructors under consideration are those of `S`, and the one "selected by overload resolution" is `S::S(const std::string&)`.
+Poll: Should we allow `get_constructor` to look through reference binding to find a type and its constructor?
+
+```
+SF	F	N	A	SA
+0	2	7	8	0
+```
+
+Modify 21.12.4.16 as follows:
+
+> The program is ill-formed if no such constructor exists[, or if the conversion involves reference binding (16.3.1.6)]{.add}.
 
 ## PL 054 (21.12.4.18) - SG7/EWG
 
