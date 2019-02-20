@@ -27,7 +27,7 @@ See GB 086.
 
 ## CH 005 (06p1) - CWG
 
-Recommend to reject the proposed change, in favor of the conflicting solution proposed in CH 006.
+Reject, an alias-declaration is not a namespace-alias.
 
 ## CH 006 (06p1) - CWG
 
