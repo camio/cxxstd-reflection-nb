@@ -394,7 +394,7 @@ Modify 21.12.3.4 as follows:
 
 At the end of the paragraph 2 of 21.12.4, add
 
-> [Alias entities are not returned by meta-object operations, but their aliased entity, (12.12.3.4).]{.add}
+> [Alias entities are not returned by meta-object operations, (21.12.3.4).]{.add}
 
 Modify 21.12.4.7 as follows:
 
