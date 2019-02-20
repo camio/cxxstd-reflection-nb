@@ -512,9 +512,7 @@ Note: the resolution here should be should also be applied to @P1208R3.
 
 ## CA 046 (21.12.4) - CWG
 
-Recommend to accept the proposed change. Modify 21.12.4.1 as follows:
-
-> \pnum{4} All specializations of `get_source_file_name<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1) with a static data member named `value` of type `const char (&)[N]`, referencing a static, constant expression character array ([NTBS]{.rm} [NTMBS]{.add}) of length `N`, as if declared as `static constexpr char STR[N] = ...;`. The value of the [NTBS]{.rm} [NTMBS]{.add} is the presumed name of the source file (19.8) of the most recent declaration of the entity or typedef described by `T`.
+Recommend to accept the proposed change, with modifications: the file name should not be represented as an NTMBS but NTBS since multi-byte has encoding implications.
 
 Modify 21.12.4.3 as follows:
 
