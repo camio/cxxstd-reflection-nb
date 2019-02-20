@@ -862,6 +862,30 @@ Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
 +   using unpack_sequence_t = typename unpack_sequence<Tpl, T>::type;
 ```
 
+# Suggested editorial resolutions
+
+## CA 069
+
+Suggest to reject.
+
+## CA 070
+
+Suggest to accept with modification.
+
+Add "Otherwise," for each but the first of the top bullets, and to each but the first of the sub-bullets.
+
+## CA 071
+
+Suggest to accept the proposed change with modifications.
+
+Modify 21.12.4.3 as follows:
+
+> For `T` reflecting an array, pointer, reference [of]{.rm} [or]{.add} function type, or a *cv*-qualified type, the string’s value is the empty string for `get_name<T>` and implementation-defined for
+`get_display_name<T>`.
+
+## CA 076
+
+
 # Acknowledgements
 
 Special thanks to Michael Park who is responsible for the pandoc extensions
