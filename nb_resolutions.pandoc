@@ -831,11 +831,12 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 > 4.3 Feature-testing recommendations [intro.features]
 > 
 > \pnum{1} An implementation that provides support for this Technical Specification shall define the feature test
-> macro(s) in Table 2.
+> macros in Table 2.
 >
-> Macro name     Value
-> -----------    ------
-> __cpp_reflect  201811
+> Macro name         Value   Header
+> -----------        ------  ------
+> __cpp_reflect      201811  n/a
+> __cpp_lib_reflect  201811  `<reflect>`
 >
 > Table 2 - Feature-test macro(s)
 > 
