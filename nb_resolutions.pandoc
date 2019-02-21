@@ -603,11 +603,7 @@ Template aliases are not supported by N4766.
 
 ## CA 060 (21.12.4.3 p2) - CWG
 
-Recommend to accept, by applying the following modification to 21.12.4.3:
-
-> \pnum{2.4.15} - for `T` reflecting an operator function, the *operator* element of the relevant *operator-
-function-id*[; or, in the case of a literal operator, the string `"\"\"" ` followed by the literal suffix identifier of the operator's *literal-operator-id*]{.add};
-
+Recommend to accept, by applying the modification shown in CA 071.
 
 ## CA 061 (21.12.4.3 p2) - CWG
 
@@ -889,6 +885,7 @@ Replace the bulleted list of 21.12.4.3/2 by the following:
 >    - a constructor, the *injected-class-name* of its class;
 >    - a destructor, the *injected-class-name* of its class, prefixed by the character ’~’;
 >    - an operator function, the operator element of the relevant *operator-function-id*;
+>    - a literal operator, the *s-char-sequence* `\"\"` followed by the literal suffix identifier of the operator's *literal-operator-id*;
 >    - a conversion function, the same characters as `get_name_v<R>`, with `R` reflecting the type represented by the *conversion-type-id*.
 > - In all other cases, the string’s value is the empty string.
 
