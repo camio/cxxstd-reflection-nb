@@ -405,47 +405,45 @@ Modify 21.12.4.7 as follows:
 
 ## CH 032 (21.12.2) - CWG
 
-Recommend to accept the proposed change.
+Recommend to accept the proposed change with modification; variable templates have no immediate context which would allow them to be SFINAEd on.
 
 Modify 21.12.2 as follows:
 
 ```diff
-- template <class T>
-+ template <Object T>
-  constexpr auto is_public_v = is_public<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_protected_v = is_protected<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_private_v = is_private<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_constexpr_v = is_constexpr<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_static_v = is_static<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_final_v = is_final<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_explicit_v = is_explicit<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_inline_v = is_inline<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_virtual_v = is_virtual<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto is_pure_virtual_v = is_pure_virtual<T>::value;
-- template <class T>
-+ template <Object T>
-   constexpr auto get_pointer_v = get_pointer<T>::value;
+  template <class T>
++ requires RecordMember<T> || Base<T>
+     constexpr auto is_public_v = is_public<T>::value;
+  template <class T>
++ requires RecordMember<T> || Base<T>
+     constexpr auto is_protected_v = is_protected<T>::value;
+  template <class T>
++ requires RecordMember<T> || Base<T>
+     constexpr auto is_private_v = is_private<T>::value;
+  template <class T>
++ requires Variable<T> || Callable<T>
+     constexpr auto is_constexpr_v = is_constexpr<T>::value;
+  template <class T>
++ requires Variable<T> || MemberFunction<T>
+     constexpr auto is_static_v = is_static<T>::value;
+  template <class T>
++ requires Class<T> || MemberFunction<T>
+     constexpr auto is_final_v = is_final<T>::value;
+  template <class T>
++ requires Constructor<T> || ConversionOperator<T>
+     constexpr auto is_explicit_v = is_explicit<T>::value;
+  template <class T>
++ requires Namespace<T> || Callable<T>
+     constexpr auto is_inline_v = is_inline<T>::value;
+  template <class T>
++ requires Base<T> || MemberFunction<T> || Destructor<T>
+     constexpr auto is_virtual_v = is_virtual<T>::value;
+  template <class T>
++ requires MemberFunction<T> || Destructor<T>
+     constexpr auto is_pure_virtual_v = is_pure_virtual<T>::value;
+  template <class T>
++ requires Variable<T> || Function<T>
+     constexpr auto get_pointer_v = get_pointer<T>::value;
 ```
-
-While these templates could be further constrained, the current restriction on `Object` is sufficiently reducing the allowed specializations to those of `reflect` concepts. Even with the constraints above, the operations can be SFINAEd on.
 
 ## PL 035 (21.12.2) - CWG
 
