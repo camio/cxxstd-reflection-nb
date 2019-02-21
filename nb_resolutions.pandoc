@@ -808,6 +808,8 @@ See CH 013.
 
 ## CA 085 (General) - CWG!
 
+JENS: review.
+
 The authors believe that this comment should be addressed to CWG, rather than SG7/LEWG.
 
 The authors recommend to add a new final sentence to the last paragraph of 10.1.7.6 as follows:
@@ -820,6 +822,8 @@ This allows operations (e.g. `get_scope`) to be well-defined.
 
 
 ## GB 086 (General, 04.2) - SG10/CWG
+
+NEEDS JENS.
 
 Propose to accept the suggested modification, by inserting a new 4.3 between 4.2 and 4.3:
 
