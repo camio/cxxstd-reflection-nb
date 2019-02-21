@@ -862,7 +862,11 @@ Suggest to reject; insufficient motivation for a change.
 
 Suggest to accept with modification.
 
-Add "Otherwise," for each but the first of the top bullets, and to each but the first of the sub-bullets.
+JENS: review.
+
+Modify 21.12.4.3/2 as follows: 
+
+> All specializations of `get_name<T>` and `get_display_name<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1) with a static data member named `value` of type `const char (&)[N]`, referencing a static, constant expression character array (NTBS) of length `N`, as if declared as `static constexpr char STR[N] = ...;`. [In the following list, the first matching case determines the value of these data members:]{.add}
 
 ## CA 071
 
