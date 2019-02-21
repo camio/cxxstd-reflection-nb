@@ -783,6 +783,8 @@ Modify paragraph 4 of 21.12.4.9 as follows:
 
 Recommend to accept the proposed change, by adding the following sentence at the end of paragraph 4:
 
+TODO: needs JENS
+
 > ::: add
 > \pnum{4} ... If `T` reflects a reference, the name of the reference appearing in a context with no lvalue-to-rvalue conversion shall be a constant expression.
 > :::
