@@ -492,6 +492,8 @@ See CA 030.
 
 ## CA 045 (21.12.4) - CWG
 
+JENS!
+
 Recommend to accept the suggested change to 21.12.4.3, while leaving 21.12.4.1 unmodified, as it specifically references (19.8).
 
 Add a new sentence after 21.12.4.3/5:
