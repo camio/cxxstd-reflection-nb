@@ -528,6 +528,12 @@ Recommend to accept the proposed modification, by applying the following change 
 
 > \pnum{1} ... The nested type named `type` is [an alias to]{.rm}[a synonym for]{.add} `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4)]{.add} reflected by `T`.
 
+Also apply the change
+
+> nested type named `type` that is [an alias to]{.rm} [a synonym for]{.add}
+
+for all occurrences in the document.
+
 ## CA 052 (21.12.4.16 p1) - CWG
 
 `reflexpr((X(X())))` does not invoke the copy constructor, due to guaranteed copy elision. An alternative approach to access constructors through an expression is `reflexpr((X(declval<X&>())))`. A more reliabale approach is to retrieve a class's constructors, take the subset of special member functions, and find the copy constructor back.
