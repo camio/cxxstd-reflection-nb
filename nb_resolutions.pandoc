@@ -524,9 +524,9 @@ Recommend to accept with modification:
 
 In 21.12.4.1, apply the following changes:
 
->  \pnum{3} ... representing some offset from the start of the line (for `get_source_column<T>`) of the most recent declaration [(ignoring block-scope declarations)]{.add} of the entity or typedef described by `T`.
+>  \pnum{3} ... representing some offset from the start of the line (for `get_source_column<T>`) of a declaration of the entity or typedef described by `T`.
 
->  \pnum{4} ... The value of the NTBS is the presumed name of the source file (19.8) of the most recent declaration [(ignoring block-scope declarations)]{.add} of the entity or typedef described by `T`.
+>  \pnum{4} ... The value of the NTBS is the presumed name of the source file (19.8) of a declaration of the entity or typedef described by `T`.
 
 This matches US 024 forbidding block-scope declarations as *reflexpr-operand*s.
 
