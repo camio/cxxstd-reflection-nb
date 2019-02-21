@@ -809,10 +809,10 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 > \pnum{1} An implementation that provides support for this Technical Specification shall define the feature test
 > macros in Table 2.
 >
-> Macro name         Value   Header
-> -----------        ------  ------
-> __cpp_reflect      201811  n/a
-> __cpp_lib_reflect  201811  `<reflect>`
+> Macro name            Value   Header
+> -----------           ------  ------
+> __cpp_reflection      201902  none
+> __cpp_lib_reflection  201902  `<reflect>`
 >
 > Table 2 - Feature-test macro(s)
 > 
