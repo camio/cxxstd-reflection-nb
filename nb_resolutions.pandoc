@@ -654,9 +654,9 @@ Apply the following modification to 21.12.2:
 
 ```diff
 - template <Type T> struct is_class;
-+ template <Type T> struct uses_class_key;
++ template <Class T> struct uses_class_key;
 - template <Type T> struct is_struct;
-+ template <Type T> struct uses_struct_key;
++ template <Class T> struct uses_struct_key;
   template <Type T> struct is_union;
   template <Typed T>
     using get_type_t = typename get_type<T>::type;
@@ -664,21 +664,23 @@ Apply the following modification to 21.12.2:
     using get_reflected_type_t = typename get_reflected_type<T>::type;
   template <Type T>
     constexpr auto is_enum_v = is_enum<T>::value;
-  template <Type T>
+- template <Type T>
 -   constexpr auto is_class_v = is_class<T>::value;
++ template <Class T>
 +   constexpr auto uses_class_key_v = uses_class_key<T>::value;
-  template <Type T>
+- template <Type T>
 -   constexpr auto is_struct_v = is_struct<T>::value;
++ template <Class T>
 +   constexpr auto uses_struct_key_v = uses_struct_key<T>::value;
 ```
 
 Apply the following modification to 21.12.4.5:
 
-> `template <Type T> struct` [`is_class`]{.rm}[`uses_class_key`]{.add}`;`
+> `template <`[`Type`]{.rm}[`Class`]{.add}` T> struct` [`is_class`]{.rm}[`uses_class_key`]{.add}`;`
 
-> `template <Type T> struct` [`is_struct`]{.rm}[`uses_struct_key`]{.add}`;`
+> `template <`[`Type`]{.rm}[`Class`]{.add}` T> struct` [`is_struct`]{.rm}[`uses_struct_key`]{.add}`;`
 
-> \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{`.add}<T>` shall meet the `UnaryTypeTrait` require ments (23.15.1). If `T` reflects a class with *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`. If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{.add}<T> can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.
+> \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{`.add}<T>` shall meet the `UnaryTypeTrait` require ments (23.15.1). If `T` reflects a class [defined]{.add} with *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`. [If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of `is_class``<T>` and `is_struct`<T> can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.]{.rm}[ If `T` reflects an undefined class, specializations of `uses_class_key<T>` and `uses_struct_key<T>` have no nested type named `type`.]{.add}
 
 ## CH 074 (21.12.4.6) - SG7/EWG
 
