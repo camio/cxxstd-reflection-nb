@@ -856,7 +856,7 @@ Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
 
 ## CA 069
 
-Suggest to reject.
+Suggest to reject; insufficient motivation for a change.
 
 ## CA 070
 
