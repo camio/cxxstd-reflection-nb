@@ -881,20 +881,18 @@ JENS: review.
 
 Replace the bulleted list of 21.12.4.3/2 by the following:
 
-> The value of `get_display_name_v<T>` is the empty string if `T` reflects an unnamed entity; otherwise it is implementation defined.
+> The value of `get_display_name_v<T>` is the empty string if `T` reflects an unnamed entity; otherwise the value is implementation defined.
 >
 > The value of `get_name_v<T>` is determined by the first matching case in the following list:
 >
-> - For `T` reflecting an unnamed entity, the empty string.
-> - For `T` reflecting a specialization of a class, function (except for conversion functions, constructors, operator functions, or literal operators), or variable template, its *template-name*;
-> - For `T` reflecting a *cv*-unqualified type being:
->    - an alias, the unqualified name of the aliasing declaration;
->    - a *decltype-specifier*, the empty string for `get_name<T>`;
->    - a specialization of a class template, its *template-name*;
+> - for `T` reflecting an unnamed entity, the empty string.
+> - for `T` reflecting a specialization of a class, function (except for conversion functions, constructors, operator functions, or literal operators), or variable template, its *template-name*;
+> - for `T` reflecting an alias, the unqualified name of the aliasing declaration;
+> - for `T` reflecting a *cv*-unqualified type that is
 >    - a class type, its *class-name*;
 >    - an enumeration type, its *enum-name*;
->    - a *cv*-unqualified fundamental type other than `std::nullptr_t`, the name stated in the "Type" column of Table 9 in (10.1.7.2);
-> - For `T` not reflecting a type but
+>    - a fundamental type other than `std::nullptr_t`, the name stated in the "Type" column of Table 9 in (10.1.7.2);
+> - for `T` reflecting
 >    - a namespace, its *namespace-name*;
 >    - a variable, enumerator, data member, or function, its unqualified name;
 >    - a function parameter, its name;
@@ -902,8 +900,7 @@ Replace the bulleted list of 21.12.4.3/2 by the following:
 >    - a destructor, the *injected-class-name* of its class, prefixed by the character ’~’;
 >    - an operator function, the operator element of the relevant *operator-function-id*;
 >    - a conversion function, the same characters as `get_name_v<R>`, with `R` reflecting the type represented by the *conversion-type-id*.
-> - In all other cases (for instance for `T` reflecting a lambda object, or a *cv*-qualified or reference type), the string’s value is the empty string.
-
+> - In all other cases, the string’s value is the empty string.
 
 ## CA 076
 
