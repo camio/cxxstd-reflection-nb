@@ -798,12 +798,8 @@ The authors recommend to add a new final sentence to the last paragraph of 10.1.
 > Reflecting directly or indirectly upon `std::align_val_t` [basic.stc.dynamic] without inclusion of the header `<new>` is ill-formed; no diagnostic required.
 :::
 
-This allows operations (e.g. `get_scope`) to be well-defined.
-
 
 ## GB 086 (General, 04.2) - SG10/CWG
-
-NEEDS JENS.
 
 Propose to accept the suggested modification, by inserting a new 4.3 between 4.2 and 4.3:
 
