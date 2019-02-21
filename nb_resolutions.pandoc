@@ -478,7 +478,9 @@ See CA 030.
 
 ## CH 042 (21.12.3.18) - SG7/EWG
 
-This is a misunderstanding. A 'base' in this case has a class which is accessible with `get_class`. This class then has a name. Suggest no action.
+Suggest to reject.
+
+This is a misunderstanding. A 'base' in this case has a class which is accessible with `get_class`. This class then has a name.
 
 ## CH 043 (21.12.3.6) - CWG
 
