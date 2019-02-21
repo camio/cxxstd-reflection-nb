@@ -790,14 +790,12 @@ See CH 013.
 
 ## CA 085 (General) - CWG!
 
-JENS: review.
-
 The authors believe that this comment should be addressed to CWG, rather than SG7/LEWG.
 
 The authors recommend to add a new final sentence to the last paragraph of 10.1.7.6 as follows:
 
 ::: add
-> Reflecting directly or indirectly upon an allocation function [basic.stc.dynamic] without inclusion of the header `<new>` is ill-formed; no diagnostic required.
+> Reflecting directly or indirectly upon `std::align_val_t` [basic.stc.dynamic] without inclusion of the header `<new>` is ill-formed; no diagnostic required.
 :::
 
 This allows operations (e.g. `get_scope`) to be well-defined.
