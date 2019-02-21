@@ -877,8 +877,6 @@ See the resolution to CA 071.
 
 Suggest to accept the proposed change with modifications; this is a non-editorial change.
 
-JENS: review.
-
 Replace the bulleted list of 21.12.4.3/2 by the following:
 
 > The value of `get_display_name_v<T>` is the empty string if `T` reflects an unnamed entity; otherwise the value is implementation defined.
