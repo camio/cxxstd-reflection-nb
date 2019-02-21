@@ -875,7 +875,9 @@ JENS: review.
 Replace the bulleted list of 21.12.4.3/2 by the following:
 
 > The value of `get_display_name_v<T>` is the empty string if `T` reflects an unnamed entity; otherwise it is implementation defined.
+>
 > The value of `get_name_v<T>` is determined by the first matching case in the following list:
+>
 > - For `T` reflecting an unnamed entity, the empty string.
 > - For `T` reflecting a specialization of a class, function (except for conversion functions, constructors, operator functions, or literal operators), or variable template, its *template-name*;
 > - For `T` reflecting a *cv*-unqualified type being:
