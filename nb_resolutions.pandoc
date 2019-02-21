@@ -591,6 +591,8 @@ Recommend to accept.
 
 ## CH 057 (21.12.4.3 p2.1) - SG7/EWG
 
+Recommend to reject.
+
 This is already the existing behavior and lambda objects are specifically
 called out. See Section 21.12.4.3 paragraph 2.5. Lambda objects are not unnamed
 entities.
