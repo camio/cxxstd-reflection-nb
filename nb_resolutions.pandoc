@@ -606,15 +606,7 @@ Recommend to accept, by applying the following modification to 21.12.4.3:
 
 Recommend to accept CA 065 and CA 066, both with modifications.
 
-Apply the following modification to 21.12.4.3:
-
-> \pnum{2.4.1} - for `T` reflecting an `Alias`, the unqualified name of the aliasing declaration[: the
-identifier introduced by a *type-parameter* or the type name introduced by a *using-declaration*,
-alias]{.rm};
-
-Then insert a new bullet (2.4.2), moving the existing (2.4.2) to (2.4.3) etc:
-
-> [\pnum{2.4.2} - for `T` reflecting a *type-parameter*, the identifier introduced by the *type-parameter*.]{.add}
+See the resolution to CA 071.
 
 ## CA 068 (21.12.4.3 p2) - CWG
 
@@ -852,6 +844,7 @@ Replace the bulleted list of 21.12.4.3/2 by the following:
 > - for `T` reflecting a specialization of a class, function (except for conversion functions, constructors, operator functions, or literal operators), or variable template, its *template-name*;
 > - for `T` reflecting an alias, the unqualified name of the aliasing declaration;
 > - for `T` reflecting a *cv*-unqualified type that is
+>    - a *type-parameter*, the identifier introduced by the *type-parameter*;
 >    - a class type, its *class-name*;
 >    - an enumeration type, its *enum-name*;
 >    - a fundamental type other than `std::nullptr_t`, the name stated in the "Type" column of Table 9 in (10.1.7.2);
