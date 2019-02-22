@@ -288,9 +288,9 @@ void f() {
   extern int x;
   reflexpr(x); // ERROR
 }
+```
 
 See the modification in US 025.
-```
 
 ## US 025 (10.1.7.6 p1) - CWG
 
