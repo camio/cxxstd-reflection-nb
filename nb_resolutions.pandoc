@@ -547,17 +547,6 @@ We believe that no normative change is needed to address this NB comment. To cla
 
 **NOTE TO THE EDITOR**: this *Note* shall be dropped when rebasing on C++14. 
 
-Additionally, we recommend to modify 21.12.4.16 as follows:
-
-> The program is ill-formed if no such constructor [exists]{.rm} [is used]{.add}.
-
-This is meant to address the following case:
-
-```
-struct S{int x,y;};
-using S_m = get_constructor_t<reflexpr(S{1,2})>; // ERROR with above modification
-```
-
 ## CA 053 (21.12.4.16) - SG7/EWG
 
 Recommend to accept the proposed change with modification.
