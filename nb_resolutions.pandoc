@@ -536,7 +536,7 @@ for all occurrences in the document.
 
 ## CA 052 (21.12.4.16 p1) - CWG
 
-`reflexpr((X(X())))` does not invoke the copy constructor, due to guaranteed copy elision. An alternative approach to access constructors through an expression is `reflexpr((X(declval<X&>())))`. A more reliabale approach is to retrieve a class's constructors, take the subset of special member functions, and find the copy constructor back.
+`reflexpr((X(X())))` does not invoke the copy constructor, due to guaranteed copy elision. An alternative approach to access constructors through an expression is `reflexpr((X(declval<X&>())))`. A more reliable approach is to retrieve a class's constructors, take the subset of special member functions, and find the copy constructor back.
 
 We believe that no normative change is needed to address this NB comment. To clarify the intent, we recommend to accept the proposed change, adding the following note at the end of 21.12.4.16:
 
