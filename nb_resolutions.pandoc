@@ -1,7 +1,7 @@
 ---
 title: "Reflection TS NB comment resolutions: summary and rationale"
-document: P1390R1
-date: 2019-02-22
+document: D1390R2
+date: 2019-03-08
 audience: SG7/Evolution/LEWG/LWG/Core
 author:
   - name: Matúš Chochlík
@@ -33,7 +33,7 @@ Reject, an alias-declaration is not a namespace-alias.
 
 Recommend to reject the proposed change. The term *alias* can also refer to variable aliases.
 
-Clarify by modifying the example in 21.12.3.4:
+Clarify by modifying the example in 21.12.3.4 [reflect.concepts.alias]:
 
 ```diff
   namespace N {
@@ -61,7 +61,7 @@ Clarify by modifying the example in 21.12.3.4:
 
 Recommend to accept the proposed change with modification.
 
-In 8.6, insert a new bullet 8.5, adjusting the subsequent bullet numbers:
+In 8.6 [expr.const], insert a new bullet 8.5, adjusting the subsequent bullet numbers:
 
 > \pnum{8} An expression is potentially constant evaluated if it is:
 > ...
@@ -69,7 +69,7 @@ In 8.6, insert a new bullet 8.5, adjusting the subsequent bullet numbers:
 > \pnum{8.5} --- a *reflexpr-operand*,
 >:::
 
-Modify 10.1.7.6 as follows:
+Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 > Any other *reflexpr-operand* renders the program ill-formed.
 >
@@ -80,30 +80,30 @@ Modify 10.1.7.6 as follows:
 (Note that the example provided as part of CA 008 is invalid as `reflexpr(foo(a))` specifies a type that satisfies `FunctionCallExpression`, not `Constant`.)
 
 
-## PL 009 (10.1.7.2, 10.1.7.6) - CWG
+## PL 009 (10.1.7.2 [dcl.type.simple], 10.1.7.6 [dcl.type.reflexpr]) - CWG
 
 Recommend to accept the proposed change with modifications. Modify 
 
-Modify the new final paragraph of 10.1.7.2 as follows:
+Modify the new final paragraph of 10.1.7.2 [dcl.type.simple] as follows:
 
-> For a *reflexpr-operand* `x`, the type denoted by `reflexpr(x)` is [an implementation-defined]{.rm} [a]{.add} type that satisfies the constraints laid out in 10.1.7.6.
+> For a *reflexpr-operand* `x`, the type denoted by `reflexpr(x)` is [an implementation-defined]{.rm} [a]{.add} type that satisfies the constraints laid out in 10.1.7.6 [dcl.type.reflexpr].
 
-Modify 10.1.7.6 as follows:
+Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 > \pnum{1} ... A meta-object type is an [unnamed,]{.add} incomplete namespace-scope class type (Clause 12).
 >
 > ... [The type specified by the reflexpr-specifier is implementation-defined. ]{.rm}
 
 
-## CH 010 (10.1.7.2) - SG7/EWG
+## CH 010 (10.1.7.2 [dcl.type.simple]) - SG7/EWG
 
 Propose to accept; this grammar is now allowed as part of *id-expression*, see CA 011.
 
-## CA 011 (10.1.7.2) - CWG
+## CA 011 (10.1.7.2 [dcl.type.simple]) - CWG
 
 Recommend to accept the proposed change.
 
-Modify 10.1.7.2 as follows:
+Modify 10.1.7.2 [dcl.type.simple] as follows:
 
 > | *reflexpr-operand:*
 > |    `::`
@@ -117,26 +117,26 @@ Modify 10.1.7.2 as follows:
 > |    *id-expression*
 > :::
 
-Modify 10.1.7.6 as follows:
+Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 >:::rm
-> For an operand that is a parenthesized expression (8.4.3), the type satisfies `reflect::ParenthesizedExpression`. For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
+> For an operand that is a parenthesized expression (8.4.3 [expr.prim.paren]), the type satisfies `reflect::ParenthesizedExpression`. For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
 >
-> For an operand of the form *function-call-expression*, the type satisfies `reflect::FunctionCallExpression`. If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
+> For an operand of the form *function-call-expression*, the type satisfies `reflect::FunctionCallExpression`. If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2 [over.call.object]). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
 >
-> For an operand of the form *functional-type-conv-expression* (8.5.1.3), the type satisfies 
-> `reflect::FunctionalTypeConversion`. [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
+> For an operand of the form *functional-type-conv-expression* (8.5.1.3 [expr.type.conv]), the type satisfies 
+> `reflect::FunctionalTypeConversion`. [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2 [dcl.ambig.res]) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
 >
 > For an operand of the form *identifier* where *identifier* is a template *type-parameter*, the type satisfies both `reflect::Type` and `reflect::Alias`.
 >:::
-> [The *identifier* or *simple-template-id* is looked up using the rules for name lookup (6.4): if a *nested-name-specifier* is included in the operand, qualified lookup (6.4.3) of *nested-name-specifier* *identifier* or *nested-name-specifier* *simple-template-id* will be performed, otherwise unqualified lookup (6.4.1) of *identifier* or *simple-template-id* will be performed.]{.rm} The type specified by the *reflexpr-specifier* satisfies concepts depending on the result of [the]{.rm} name lookup, as shown in Table 12.
+> [The *identifier* or *simple-template-id* is looked up using the rules for name lookup (6.4 [basic.lookup]): if a *nested-name-specifier* is included in the operand, qualified lookup (6.4.3 [basic.lookup.qual]]) of *nested-name-specifier* *identifier* or *nested-name-specifier* *simple-template-id* will be performed, otherwise unqualified lookup (6.4.1 [basic.lookup.unqual]) of *identifier* or *simple-template-id* will be performed.]{.rm} The type specified by the *reflexpr-specifier* satisfies concepts depending on the result of [the]{.rm} name lookup, as shown in Table 12.
 >
 > [If the *reflexpr-operand* designates a *type-id* not explicitly mentioned in Table 12, the type represented by the *reflexpr-specifier* satisfies `reflect::Type`.]{.rm} Any other *reflexpr-operand* renders the program ill-formed.
 
 
 Modify the caption of Table 12 as follows:
 
-> `reflect` concept (21.12.3) that the type specified by a *reflexpr-specifier* satisfies, for a given *reflexpr-operand*
+> `reflect` concept (21.12.3 [reflect.concepts]) that the type specified by a *reflexpr-specifier* satisfies, for a given *reflexpr-operand*
 [ *identifier* or *simple-template-id*]{.rm}.
 
 Replace Table 12 by the following table:
@@ -186,29 +186,29 @@ Add the following new paragraph after the table:
 >:::add
 > Note A) For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression*, or a *functional-type-conv-expression*; otherwise the program is ill-formed.
 >
-> Note B) If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
+> Note B) If the *postfix-expression* of the *function-call-expression* is of class type, the function call shall not resolve to a surrogate call function (16.3.1.1.2 [over.call.object]). Otherwise, the *postfix-expression* shall name a function that is the unique result of overload resolution.
 >
-> Note C) [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
+> Note C) [ *Note:* The usual disambiguation between function-style cast and a *type-id* (11.2 [dcl.ambig.res]) applies. [ *Example:* The default constructor of class `X` can be reflected on as `reflexpr((X()))`, while `reflexpr(X())` reflects the type of a function returning `X`. --- *end example* ] --- *end note* ]
 >:::
 
 
-## CH 013 (10.1.7.6) - CWG
+## CH 013 (10.1.7.6 [dcl.type.reflexpr]) - CWG
 
 Recommend to accept the proposed change.
 
-Modify 10.1.7.6 as follows:
+Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
-> If the *reflexpr-operand* designates an entity or alias at block scope (6.3.3) or function [prototype]{.rm}[parameter]{.add} scope (6.3.4) and...
+> If the *reflexpr-operand* designates an entity or alias at block scope (6.3.3 [basic.scope.block]) or function [prototype]{.rm}[parameter]{.add} scope (6.3.4 [basic.scope.param]) and...
 
-## CA 016 (10.1.7.6 p1) - CWG
+## CA 016 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
-Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now explicitly called out by the recommended modifications in CA 011. Also modify 21.12.3.17 as follows:
+Recommend to accept the propsed change; `Constant` *reflexpr-operand*s are now explicitly called out by the recommended modifications in CA 011. Also modify 21.12.3.17 [reflect.concepts.const] as follows:
 
-> Constant<T> is true if and only if T reflects [a constant expression (8.6)]{.rm} [an enumerator or a `constexpr` variable]{.add}.
+> Constant<T> is true if and only if T reflects [a constant expression (8.6 [expr.const])]{.rm} [an enumerator or a `constexpr` variable]{.add}.
 
 
 
-## CA 017 (10.1.7.6 p1) - CWG
+## CA 017 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
 Recommend to accept the proposed change. Similar to types represented by the `decltype` specifier, fundamental and *cv*-qualified types must not have a scope either. Only declarations should be `ScopeMember`s.
 
@@ -220,7 +220,7 @@ Modify Table 12 as follows:
 > |   | *type-name* introduced by a *using-declaration* | `reflect::Type` [and]{.rm}[,]{.add} `reflect::Alias` [, and `reflect::ScopeMember`]{.add} |
 > +---+-------------------------------------------------+-------------------------------------------------------------------------------------------+
 
-Modify 21.12.2 as follows:
+Modify 21.12.2 [reflect.synopsis] as follows:
 
 ```diff
 - template <class T> concept Enum;    // refines Type and Scope
@@ -232,20 +232,20 @@ Modify 21.12.2 as follows:
 + template <class T> concept Type;    // refines Named
 ```
 
-Modify 21.12.3.16 as follows:
+Modify 21.12.3.16 [reflect.concepts.type] as follows:
 
 ```diff
 - template <class T> concept Type = Named<T> && ScopeMember<T> && see below;
 + template <class T> concept Type = Named<T> && see below;
 ```
 
-Add a note at the end of 21.12.3.16:
+Add a note at the end of 21.12.3.16 [reflect.concepts.type]:
 
 > [[ *Note:* Some types `T` also satisfy `ScopeMember`; others, for instance those reflecting *cv*-qualified types or fundamental types, do not. --- *end note* ]]{.add}
 
-## CA 019 (10.1.7.6 p1) - CWG
+## CA 019 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
-Recommend to accept the proposed change. Modify 10.1.7.6 as follows:
+Recommend to accept the proposed change. Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 > :::rm
 > For a parenthesized expression `(E)`, whether or not itself nested inside a parenthesized expression, the expression `E` shall be either a parenthesized expression, a *function-call-expression* or a *functional-type-conv-expression*; otherwise the program is ill-formed.
@@ -255,9 +255,9 @@ Recommend to accept the proposed change. Modify 10.1.7.6 as follows:
 > :::
 
 
-## CA 021 (10.1.7.6 p1) - CWG
+## CA 021 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
-Recommend to accept the proposed change with modification. Modify 10.1.7.6 as follows:
+Recommend to accept the proposed change with modification. Modify 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 > An entity or alias [`A`]{.rm}[`B`]{.add} is *reflection-related* to an entity or alias [`B`]{.rm}[`A`]{.add} if
 >
@@ -266,7 +266,7 @@ Recommend to accept the proposed change with modification. Modify 10.1.7.6 as fo
 > - `A` is an enumeration and `B` is the underlying type of `A`,
 > - `A` is a class and `B` is a member or base class of `A`,
 > - `A` is a non-template alias that designates the entity `B`,
-> [- `A` is a class nested in `B` (12.2.5),]{.rm}
+> [- `A` is a class nested in `B` (12.2.5 [class.nest]),]{.rm}
 > - `A` is not the global namespace and `B` is an enclosing [class or]{.add} namespace of `A`,
 > - [`B`]{.rm}[`A`]{.add} is the parenthesized expression `(` [`A`]{.rm}[`B`]{.add} `)`,
 > - `A` is a lambda capture of the closure type `B`,
@@ -278,7 +278,7 @@ Recommend to accept the proposed change with modification. Modify 10.1.7.6 as fo
 
 Note: the modification to the suggested change consists in the clarification of enclosing classes, and the removal of the superfluous nested class case. The latter is subsumed by "member or base class of `A`". The resolution was also modified to be such that `A` yields `B`, with a corresponding change in the position of `A` and `B` in the definition of the relation.
 
-## US 024 (10.1.7.6 p1) - CWG
+## US 024 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
 Recommend to accept with modification. The intent is to disallow the following:
 
@@ -292,25 +292,25 @@ void f() {
 
 See the modification in US 025.
 
-## US 025 (10.1.7.6 p1) - CWG
+## US 025 (10.1.7.6 [dcl.type.reflexpr] p1) - CWG
 
 Recommend to accept proposal with modification:
 
-Modify 10.1.7.6 as follows (assuming acceptance of the proposed resolution of US 024):
+Modify 10.1.7.6 [dcl.type.reflexpr] as follows (assuming acceptance of the proposed resolution of US 024):
 
-> If the *reflexpr-operand* designates [an entity or alias declared at]{.rm} [a name whose declaration is enclosed in a]{.add} block scope (6.3.3) or function prototype scope (6.3.4) and the [named]{.add} entity is neither captured nor a function parameter, the program is ill-formed.
+> If the *reflexpr-operand* designates [an entity or alias declared at]{.rm} [a name whose declaration is enclosed in a]{.add} block scope (6.3.3 [basic.scope.block]) or function prototype scope (6.3.4 [basic.scope.param]) and the [named]{.add} entity is neither captured nor a function parameter, the program is ill-formed.
 
 ## CH 026 (17.7.2.1 p09.10) - CWG
 
-Recommend to accept to proposed modification of 17.7.2.1:
+Recommend to accept to proposed modification of 17.7.2.1 [temp.dep.type]:
 
 > - denoted by `reflexpr(`*operand*`)`, where *operand* designates a dependent type or a member
 of an unknown specialization [or a value-dependent constant expression]{.add}.
 
 
-## CA 027 (17.7.2.1 p1) - CWG
+## CA 027 (17.7.2.1 [temp.dep.type] p1) - CWG
 
-Recommend to accept the proposed modification of 17.7.2.1.
+Recommend to accept the proposed modification of 17.7.2.1 [temp.dep.type].
 
 Add a new bullet after 9.9:
 
@@ -327,56 +327,56 @@ Recommend to reject the proposed modification, as `inline` is not needed (has no
 
 Recommend to accept the proposed change.
 
-Modify 21.12.3.6 as follows:
+Modify 21.12.3.6 [reflect.concepts.enumerator] as follows:
 
 ```diff
 - template <class T> concept Enumerator = Typed<T> && ScopeMember<T> && see below;
 + template <class T> concept Enumerator = Constant<T> && see below;
 ```
 
-Modify 21.12.3.7 as follows:
+Modify 21.12.3.7 [reflect.concepts.variable] as follows:
 
 ```diff
 - template <class T> concept Variable = Typed<T> && see below;
 + template <class T> concept Variable = Typed<T> && ScopeMember<T> && see below;
 ```
 
-Modify 21.12.3.9 as follows:
+Modify 21.12.3.9 [reflect.concepts.typed] as follows:
 
 ```diff
 - template <class T> concept Typed = Named<T> && see below;
 + template <class T> concept Typed = Object<T> && see below;
 ```
 
-Modify 21.12.3.10 as follows:
+Modify 21.12.3.10 [reflect.concepts.namespace] as follows:
 
 ```diff
 - template <class T> concept Namespace = Scope<T> && see below;
 + template <class T> concept Namespace = Named<T> && Scope<T> && see below;
 ```
 
-Modify 21.12.3.17 as follows:
+Modify 21.12.3.17 [reflect.concepts.const] as follows:
 
 ```diff
 - template <class T> concept Constant = ScopeMember<T> && Typed<T> && see below;
 + template <class T> concept Constant = Typed<T> && ScopeMember<T> && see below;
 ```
 
-Modify 21.12.3.20 as follows (for consistency's sake):
+Modify 21.12.3.20 [reflect.concepts.callable] as follows (for consistency's sake):
 
 ```diff
 - template <class T> concept Callable = ScopeMember<T> && Scope<T> && see below;
 + template <class T> concept Callable = Scope<T> && ScopeMember<T> && see below;
 ```
 
-Modify 21.12.3.25 as follows (for consistency's sake):
+Modify 21.12.3.25 [reflect.concepts.fct] as follows (for consistency's sake):
 
 ```diff
 - template <class T> concept Function = Callable<T> && Typed<T> && see below;
 + template <class T> concept Function = Typed<T> && Callable<T> && see below;
 ```
 
-Modify 21.12.3.31 as follows (for consistency's sake):
+Modify 21.12.3.31 [reflect.concepts.convfct] as follows (for consistency's sake):
 
 ```diff
 - template <class T> concept ConversionOperator = Operator<T> && MemberFunction<T> && see below;
@@ -384,30 +384,30 @@ Modify 21.12.3.31 as follows (for consistency's sake):
 ```
 
 
-## CA 031 (21.12) - SG7/EWG
+## CA 031 (21.12 [reflect]) - SG7/EWG
 
 Recommend to accept the proposed change with modifications.
 
-Modify 21.12.3.4 as follows:
+Modify 21.12.3.4 [reflect.concepts.alias] as follows:
 
-> \pnum{2} [Except for the type represented by the `reflexpr` operator, `Alias` properties resulting from type transformations (21.12.4) are not retained.]{.rm}[Type transformations (21.12.4) never yield an `Alias`; instead, they yield the aliased entity.]{.add}
+> \pnum{2} [Except for the type represented by the `reflexpr` operator, `Alias` properties resulting from type transformations (21.12.4 [reflect.ops]) are not retained.]{.rm}[Type transformations (21.12.4 [reflect.ops]) never yield an `Alias`; instead, they yield the aliased entity.]{.add}
 
-At the end of the paragraph 2 of 21.12.4, add
+At the end of the paragraph 2 of 21.12.4 [reflect.ops], add
 
-> [Alias entities are not returned by meta-object operations (21.12.3.4).]{.add}
+> [Alias entities are not returned by meta-object operations (21.12.3.4 [reflect.concepts.alias]).]{.add}
 
-Modify 21.12.4.7 as follows:
+Modify 21.12.4.7 [reflect.ops.record] as follows:
 
-> \pnum{1} A specialization of any of these templates with a meta-object type that is reflecting an incomplete type renders the program ill-formed. Such errors are not in the immediate context (17.9.2). [Members introduced by *using-declaration*s (10.3.3) are included in the sequences below where applicable; the `Scope` of these members remains that of the declaration of the referenced entity. [ *Note:* These members are not `Aliase`s, see 21.12.4. A member injected into a derived class may have different access. --- *end note* ]]{.add}
+> \pnum{1} A specialization of any of these templates with a meta-object type that is reflecting an incomplete type renders the program ill-formed. Such errors are not in the immediate context (17.9.2 [temp.deduct]). [Members introduced by *using-declaration*s (10.3.3 [namespace.udecl]) are included in the sequences below where applicable; the `Scope` of these members remains that of the declaration of the referenced entity. [ *Note:* These members are not `Aliase`s, see 21.12.4 [reflect.ops]. A member injected into a derived class may have different access. --- *end note* ]]{.add}
 
 > \pnum{2} The nested type named `type` is an alias to an `ObjectSequence` specialized with `RecordMember` types that reflect the following subset of [direct]{.add} non-template members of the class reflected by `T`:
 
 
-## CH 032 (21.12.2) - CWG
+## CH 032 (21.12.2 [reflect.synopsis]) - CWG
 
 Recommend to accept the proposed change with modification; variable templates have no immediate context which would allow them to be SFINAEd on.
 
-Modify 21.12.2 as follows:
+Modify 21.12.2 [reflect.synopsis] as follows:
 
 ```diff
   template <class T>
@@ -445,29 +445,29 @@ Modify 21.12.2 as follows:
      constexpr auto get_pointer_v = get_pointer<T>::value;
 ```
 
-## PL 035 (21.12.2) - CWG
+## PL 035 (21.12.2 [reflect.synopsis]) - CWG
 
-Recommend to reject. As 21.12.3.27 notes:
+Recommend to reject. As 21.12.3.27 [reflect.concepts.specialfct] notes:
 
 > Some types that satisfy `Constructor` also satisfy `SpecialMemberFunction`.
 
-The definition of `SpecialMemberFunction` (21.12.3.27) uses "special member function (Clause 15)"
+The definition of `SpecialMemberFunction` (21.12.3.27 [reflect.concepts.specialfct]) uses "special member function (Clause 15)"
 and thus clearly includes special member functions that are constructors.
 
-## PL 036 (21.12.2) - SG7/EWG
+## PL 036 (21.12.2 [reflect.synopsis]) - SG7/EWG
 
 Recommend to reject the proposed change of renaming the concept `Object` to `Metaobject`:
 
 The meta-nature of `std::reflect::Object` is stated by the namespace it is defined in.
 There is no need to repeat this meta-nature by prepending "Meta".
 
-## CH 039 (21.12.2, 21.12.3.9) - CWG
+## CH 039 (21.12.2 [reflect.synopsis], 21.12.3.9) - CWG
 
 See CA 030.
 
-## CH 040 (21.12.3) - SG7/EWG
+## CH 040 (21.12.3 [reflect.concepts]) - SG7/EWG
 
-Recommend to accept the proposed modification by adding the following note to 21.12.3:
+Recommend to accept the proposed modification by adding the following note to 21.12.3 [reflect.concepts]:
 
 > [[ *Note:* unlike `std::is_enum`, `std::reflect::is_enum` operates on meta-object types. --- *end note* ]]{.add}
 
@@ -490,31 +490,31 @@ See CA 030.
 
 See CA 030.
 
-## CA 045 (21.12.4) - CWG
+## CA 045 (21.12.4 [reflect.ops]) - CWG
 
 See resolution to CA 071.
 
 Note: the resolution here should be should also be applied to @P1208R3.
 
-## CA 046 (21.12.4) - CWG
+## CA 046 (21.12.4 [reflect.ops]) - CWG
 
 Recommend to accept the proposed change, with modifications: the file name should not be represented as an NTMBS but NTBS since multi-byte has encoding implications.
 
-Modify 21.12.4.3 as follows:
+Modify 21.12.4.3 [reflect.ops.named] as follows:
 
-> \pnum{2} All specializations of `get_name<T>` and `get_display_name<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1) with a static data member named `value` of type `const char (&)[N]`, referencing a static, constant expression character array ([NTBS]{.rm} [NTMBS]{.add}) of length `N`, as if declared as `static constexpr char STR[N] = ...;`.
+> \pnum{2} All specializations of `get_name<T>` and `get_display_name<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1 [meta.rqmts]) with a static data member named `value` of type `const char (&)[N]`, referencing a static, constant expression character array ([NTBS]{.rm} [NTMBS]{.add}) of length `N`, as if declared as `static constexpr char STR[N] = ...;`.
 
 Note: the resolution here should be should also be applied to @P1208R3.
 
-## PL 047 (21.12.4) - SG7/EWG
+## PL 047 (21.12.4 [reflect.ops]) - SG7/EWG
 
 It is unclear how (or if) such a thing can be implemented. At any rate, this is something that can be added in the future if we get implementation experience that suggests this is possible and desirable.
 
-## CA 049 (21.12.4.1) - CWG
+## CA 049 (21.12.4.1 [reflect.ops.object]) - CWG
 
 Recommend to accept with modification:
 
-In 21.12.4.1, apply the following changes:
+In 21.12.4.1 [reflect.ops.object], apply the following changes:
 
 >  \pnum{3} ... representing some offset from the start of the line (for `get_source_column<T>`) of [the most recent]{.rm} [a]{.add} declaration of the entity or typedef described by `T`.
 
@@ -522,11 +522,11 @@ In 21.12.4.1, apply the following changes:
 
 This matches US 024 forbidding block-scope declarations as *reflexpr-operand*s.
 
-## CH 050 (21.12.4.10 p1) - CWG
+## CH 050 (21.12.4.10 [reflect.ops.derived] p1) - CWG
 
-Recommend to accept the proposed modification, by applying the following change to 21.12.4.10:
+Recommend to accept the proposed modification, by applying the following change to 21.12.4.10 [reflect.ops.derived]:
 
-> \pnum{1} ... The nested type named `type` [is an alias to]{.rm}[designates]{.add} `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4)]{.add} reflected by `T`.
+> \pnum{1} ... The nested type named `type` [is an alias to]{.rm}[designates]{.add} `reflexpr(X)`, where `X` is the base class [(without retaining possible `Alias` properties, see 21.12.3.4 [reflect.concepts.alias])]{.add} reflected by `T`.
 
 Also apply the change
 
@@ -534,34 +534,34 @@ Also apply the change
 
 for all occurrences in the document.
 
-## CA 052 (21.12.4.16 p1) - CWG
+## CA 052 (21.12.4.16 [reflect.ops.expr.fcttypeconv] p1) - CWG
 
 `reflexpr((X(X())))` does not invoke the copy constructor, due to guaranteed copy elision. An alternative approach to access constructors through an expression is `reflexpr((X(declval<X&>())))`. A more reliable approach is to retrieve a class's constructors, take the subset of special member functions, and find the copy constructor back.
 
-We believe that no normative change is needed to address this NB comment. To clarify the intent, we recommend to accept the proposed change, adding the following note at the end of 21.12.4.16:
+We believe that no normative change is needed to address this NB comment. To clarify the intent, we recommend to accept the proposed change, adding the following note at the end of 21.12.4.16 [reflect.ops.expr.fcttypeconv]:
 
 >:::add
 > [ *Note:* `get_constructor_t<get_subexpression_t<reflexpr((T(T())))>>`
-> is ill-formed because the *functional-type-conv* expression does not perform overload resolution for a constructor (15.8.3). --- *end note* ]
+> is ill-formed because the *functional-type-conv* expression does not perform overload resolution for a constructor (15.8.3 [class.copy.elision]). --- *end note* ]
 >:::
 
 **NOTE TO THE EDITOR**: this *Note* shall be dropped when rebasing on C++14. 
 
-## CA 053 (21.12.4.16) - SG7/EWG
+## CA 053 (21.12.4.16 [reflect.ops.expr.fcttypeconv]) - SG7/EWG
 
 Recommend to accept the proposed change with modification.
 
-Modify 21.12.4.16 as follows:
+Modify 21.12.4.16 [reflect.ops.expr.fcttypeconv] as follows:
 
-> For a [type conversion]{.rm} [*functional-type-conv-expression*]{.add} reflected by `T`, [the nested type named `type`]{.rm} [let `S` be the type specified by the type conversion (8.5.1.3 [expr.type.conv]). If a constructor is used for the initialization of `S`, the type `get_constructor<T>::type`]{.add} is the `Constructor` reflecting [the constructor of the type specified by the type conversion, as selected by overload resolution. The program is ill-formed if no such constructor exists.]{.rm} [that constructor; otherwise, `get_constructor<T>` has no member named `type`.]{.add} [ *Note:* For example, fundamental types (6.7.1) do not have constructors. — *end note* ]
+> For a [type conversion]{.rm} [*functional-type-conv-expression*]{.add} reflected by `T`, [the nested type named `type`]{.rm} [let `S` be the type specified by the type conversion (8.5.1.3 [expr.type.conv]). If a constructor is used for the initialization of `S`, the type `get_constructor<T>::type`]{.add} is the `Constructor` reflecting [the constructor of the type specified by the type conversion, as selected by overload resolution. The program is ill-formed if no such constructor exists.]{.rm} [that constructor; otherwise, `get_constructor<T>` has no member named `type`.]{.add} [ *Note:* For example, fundamental types (6.7.1 [basic.fundamental]) do not have constructors. — *end note* ]
 
 
-## PL 054 (21.12.4.18) - SG7/EWG
+## PL 054 (21.12.4.18 [reflect.ops.memfct]) - SG7/EWG
 
 Recommend to accept.
 
 > \pnum{1} All specializations of these templates shall meet the
-> `UnaryTypeTrait` requirements (23.15.1). If their template
+> `UnaryTypeTrait` requirements (23.15.1 [meta.rqmts]). If their template
 > parameter reflects a member function that is `static` (for
 > `is_static`), `const` (for `is_const`),
 > `volatile` (for `is_volatile`), declared with a
@@ -574,50 +574,50 @@ Recommend to accept.
 > template specialization is `true_type`, otherwise it is
 > `false_type`.
 
-## CH 057 (21.12.4.3 p2.1) - SG7/EWG
+## CH 057 (21.12.4.3 [reflect.ops.named] p2.1) - SG7/EWG
 
 Recommend to reject.
 
 This is already the existing behavior and lambda objects are specifically
-called out. See Section 21.12.4.3 paragraph 2.5. Lambda objects are not unnamed
+called out. See Section 21.12.4.3 [reflect.ops.named] paragraph 2.5. Lambda objects are not unnamed
 entities.
 
-## CH 058 (21.12.4.3) - SG7/EWG
+## CH 058 (21.12.4.3 [reflect.ops.named]) - SG7/EWG
 
 Recommend to accept, see the resolution to CA 071.
 
 Template aliases are not supported by N4766.
 
-## CA 060 (21.12.4.3 p2) - CWG
+## CA 060 (21.12.4.3 [reflect.ops.named] p2) - CWG
 
 Recommend to accept, by applying the modification shown in CA 071.
 
-## CA 061 (21.12.4.3 p2) - CWG
+## CA 061 (21.12.4.3 [reflect.ops.named] p2) - CWG
 
 See CH 058.
 
-## CA 064 (21.12.4.3 p2) - CWG
+## CA 064 (21.12.4.3 [reflect.ops.named] p2) - CWG
 
-Recommend to accept, by applying the following modification to 21.12.4.3:
+Recommend to accept, by applying the following modification to 21.12.4.3 [reflect.ops.named]:
 
-> \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2);
+> \pnum{2.4.6} - for `T` reflecting [all other *simple-type-specifiers*]{.rm}[a cv-unqualified fundamental type other than `std::nullptr_t`]{.add}, the name stated in the "Type" column of Table 9 in (10.1.7.2 [dcl.type.simple]);
 
-## CA 065 and CA 066 (21.12.4.3 p2) - CWG
+## CA 065 and CA 066 (21.12.4.3 [reflect.ops.named] p2) - CWG
 
 Recommend to accept CA 065 and CA 066, both with modifications.
 
 See the resolution to CA 071.
 
-## CA 068 (21.12.4.3 p2) - CWG
+## CA 068 (21.12.4.3 [reflect.ops.named] p2) - CWG
 
 See CH 058.
 
-## CH 072 (21.12.4.5) - SG7/EWG
+## CH 072 (21.12.4.5 [reflect.ops.type]) - SG7/EWG
 
 Recommend to accept: `struct` and `class` are conceptually the same, and `std::reflect::is_struct` wrongly suggests
 the need of `std::is_struct`. To clearly distinguish the `std::is_class` type trait from these meta functions, we recommend to rename them as proposed in the NB comment.
 
-Apply the following modification to 21.12.2:
+Apply the following modification to 21.12.2 [reflect.synopsis]:
 
 ```diff
 - template <Type T> struct is_class;
@@ -641,15 +641,15 @@ Apply the following modification to 21.12.2:
 +   constexpr auto uses_struct_key_v = uses_struct_key<T>::value;
 ```
 
-Apply the following modification to 21.12.4.5:
+Apply the following modification to 21.12.4.5 [reflect.ops.type]:
 
 > `template <`[`Type`]{.rm}[`Class`]{.add} `T> struct` [`is_class`]{.rm}[`uses_class_key`]{.add}`;`
 
 > `template <`[`Type`]{.rm}[`Class`]{.add} `T> struct` [`is_struct`]{.rm}[`uses_struct_key`]{.add}`;`
 
-> \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1). If `T` reflects a class [with]{.rm} [for which all declarations use]{.add} *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`[, otherwise it is `false_type`]{.rm}[. If `T` reflects a class for which no declaration uses *class-key* `class` (for `uses_class_key<T>`) or `struct` (for `uses_struct_key<T>`), the base characteristic of the respective template specialization is `false_type`. Otherwise, it is unspecified whether the base characteristic is `true_type` or `false_type`]{.add}. [If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of `is_class<T>` and `is_struct<T>` can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.]{.rm}
+> \pnum{8} All specializations of [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>` and [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1 [meta.rqmts]). If `T` reflects a class [with]{.rm} [for which all declarations use]{.add} *class-key* `class` (for [`is_class`]{.rm}[`uses_class_key`]{.add}`<T>`) or `struct` (for [`is_struct`]{.rm}[`uses_struct_key`]{.add}`<T>`), the base characteristic of the respective template specialization is `true_type`[, otherwise it is `false_type`]{.rm}[. If `T` reflects a class for which no declaration uses *class-key* `class` (for `uses_class_key<T>`) or `struct` (for `uses_struct_key<T>`), the base characteristic of the respective template specialization is `false_type`. Otherwise, it is unspecified whether the base characteristic is `true_type` or `false_type`]{.add}. [If the same class has redeclarations with both *class-key* `class` and *class-key* `struct`, the base characteristic of the template specialization of exactly one of `is_class<T>` and `is_struct<T>` can be `true_type`, the other template specialization is `false_type`; the actual choice of value is unspecified.]{.rm}
 
-## CH 074 (21.12.4.6) - SG7/EWG
+## CH 074 (21.12.4.6 [reflect.ops.member]) - SG7/EWG
 
 To allow future extensions of template reflection, we recommend to accept this comment with modification.
 
@@ -657,7 +657,7 @@ To represent the scope of template parameters also for variable templates, a new
 serving as the scope of template parameters.
 For the time being, this concept has no operations (beyond that of `Object`) defined.
 
-Modify 21.12.2 as follows:
+Modify 21.12.2 [reflect.synopsis] as follows:
 
 ```.diff
 template <class T> concept ObjectSequence; // refines Object
@@ -665,7 +665,7 @@ template <class T> concept ObjectSequence; // refines Object
 template <class T> concept Named; // refines Object
 ```
 
-Add a new paragraph 21.12.3.3, moving the existing 21.12.3.3 to 21.12.3.4, etc:
+Add a new paragraph 21.12.3.3, moving the existing 21.12.3.3 [reflect.concepts.named] to 21.12.3.4 [reflect.concepts.named], etc:
 
 :::add
 > 21.12.3.3 Concept `TemplateParameterScope`
@@ -676,27 +676,27 @@ Add a new paragraph 21.12.3.3, moving the existing 21.12.3.3 to 21.12.3.4, etc:
 :::
 
 
-Modify 21.12.3.4 as follows:
+Modify 21.12.3.4 [reflect.concepts.alias] as follows:
 
 > [*Note:* The `Scope` of an `Alias` is the scope that the alias was injected into. [For an `Alias` reflecting a template *type-parameter*, that scope is its `TemplateParameterScope`.]{.add} --- *end note* ]
 
-Add the following sentence to the end of 21.12.4.6, paragraph 2:
+Add the following sentence to the end of 21.12.4.6 [reflect.ops.member], paragraph 2:
 
 :::add
 > \pnum{2} ... For a template *type-parameter*, this innermost scope is the `TemplateParameterScope` representing the template parameter scope in which it has been declared.
 :::
 
-## US 075 (21.12.4.6) - CWG
+## US 075 (21.12.4.6 [reflect.ops.member]) - CWG
 
-Recommend to accept the proposed change, by modifying 21.12.4.6 as follows:
+Recommend to accept the proposed change, by modifying 21.12.4.6 [reflect.ops.member] as follows:
 
 > \pnum{2} ... class scope, enumeration scope, function scope [(in the case where the function’s parameters)]{.rm}, or ...
 
-## CH 078 (21.12.4.7 and many others) - CWG
+## CH 078 (21.12.4.7 [reflect.ops.record] and many others) - CWG
 
 Recommend to accept the proposed change.
 
-Modify 21.12.4.7 as follows:
+Modify 21.12.4.7 [reflect.ops.record] as follows:
 
 > \pnum{2} ... The nested type named `type` [is an alias to an `ObjectSequence` specialized with `RecordMember` types that]{.rm}[designates a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `RecordMember` and]{.add} reflect the following subset of non-template members of the class reflected by `T`:
 
@@ -706,23 +706,23 @@ Modify 21.12.4.7 as follows:
 
 > \pnum{13} ... The nested type named `type` [is an alias to an `ObjectSequence` specialized with `Base` types that]{.rm}[designates a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `Base` and]{.add} reflect the following subset of base classes of the class reflected by `T`:
 
-Modify 21.12.4.8 as follows:
+Modify 21.12.4.8 [reflect.ops.enum] as follows:
 
 > \pnum{2} ... The nested type named `type` [is an alias to an `ObjectSequence` specialized with `Enumerator` types that]{.rm}[designates a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `Enumerator` and]{.add} reflect the enumerators of the enumeration type reflected by `T`. ...
 
-Modify 21.12.4.13 as follows:
+Modify 21.12.4.13 [reflect.ops.callable] as follows:
 
 > \pnum{1} ... The nested type named `type` [is an alias to an `ObjectSequence` specialized with `FunctionParameter` types that]{.rm}[designates a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `FunctionParameter` and]{.add} reflect the parameters of the function reflected by `T`. ...
 
-Modify 21.12.4.23 as follows:
+Modify 21.12.4.23 [reflect.ops.lambda] as follows:
 
 > \pnum{1} ... The nested type named `type` [is an alias to an `ObjectSequence` specialized with `LambdaCapture` types that]{.rm}[designates a meta-object type satisfying `ObjectSequence`, containing elements which satisfy `LambdaCapture` and]{.add} reflect the captures of the closure object reflected by `T`. ...
 
-## CH 079 (21.12.4.9) - SG7/EWG
+## CH 079 (21.12.4.9 [reflect.ops.value]) - SG7/EWG
 
 The lack of an interface to determine thread-local storage duration is surprising; we recommend to accept the proposed modification.
 
-Modify 21.12.2 as follows:
+Modify 21.12.2 [reflect.synopsis] as follows:
 
 ```diff
   template <Constant T> struct get_constant;
@@ -737,20 +737,20 @@ Modify 21.12.2 as follows:
 +          constexpr auto is_thread_local_v = is_thread_local<T>::value;
 ```
 
-Modify paragraph 4 of 21.12.4.9 as follows:
+Modify paragraph 4 of 21.12.4.9 [reflect.ops.value] as follows:
 
 > \pnum{3} `template <Variable T> struct is_static<T>;`
 >
 > \pnum{4} [`template <Variable T> struct is_thread_local;`]{.add}
 >
-> All specializations of `is_static<T>` [and `is_thread_local<T>`]{.add} shall meet the `UnaryTypeTrait` requirements (23.15.1). If `T` reflects a variable with static [(for `is_static`) or thread (for `is_thread_local`)]{.add} storage duration, the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`.
+> All specializations of `is_static<T>` [and `is_thread_local<T>`]{.add} shall meet the `UnaryTypeTrait` requirements (23.15.1 [meta.rqmts]). If `T` reflects a variable with static [(for `is_static`) or thread (for `is_thread_local`)]{.add} storage duration, the base characteristic of the respective template specialization is `true_type`, otherwise it is `false_type`.
 
 
-## CH 080 (21.12.4.9) - SG7/EWG
+## CH 080 (21.12.4.9 [reflect.ops.value]) - SG7/EWG
 
 Recommend to accept the proposed change, by adding the following sentence at the beginning of paragraph 4:
 
-> \pnum{4} [All specializations ]{.rm} [If `T` reflects a reference with static storage duration, and the reference has no prior initialization or has not been initialized with an object of static storage duration, the specialization of `get_pointer<T>` has no member named `type`. Otherwise, the specialization]{.add} of `get_pointer<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1),...
+> \pnum{4} [All specializations ]{.rm} [If `T` reflects a reference with static storage duration, and the reference has no prior initialization or has not been initialized with an object of static storage duration, the specialization of `get_pointer<T>` has no member named `type`. Otherwise, the specialization]{.add} of `get_pointer<T>` shall meet the `UnaryTypeTrait` requirements (23.15.1 [meta.rqmts]),...
 
 ## CH 082 (Annex C) - CWG
 
@@ -773,7 +773,7 @@ See CH 013.
 
 The authors believe that this comment should be addressed to CWG, rather than SG7/LEWG.
 
-The authors recommend to add a new final sentence to the last paragraph of 10.1.7.6 as follows:
+The authors recommend to add a new final sentence to the last paragraph of 10.1.7.6 [dcl.type.reflexpr] as follows:
 
 ::: add
 > Reflecting directly or indirectly upon `std::align_val_t` [basic.stc.dynamic] without inclusion of the header `<new>` is ill-formed; no diagnostic required.
@@ -782,7 +782,7 @@ The authors recommend to add a new final sentence to the last paragraph of 10.1.
 
 ## GB 086 (General, 04.2) - SG10/CWG
 
-Propose to accept the suggested modification, by inserting a new 4.3 between 4.2 and 4.3:
+Propose to accept the suggested modification, by inserting a new 4.3 between 4.2 [intro.structure] and 4.3 [syntax]:
 
 ::: add
 > 4.3 Feature-testing recommendations [intro.features]
@@ -802,13 +802,13 @@ Propose to accept the suggested modification, by inserting a new 4.3 between 4.2
 
 # Suggested library resolutions (LEWG/LWG)
 
-## CA 028 (20.5.1) - LEWG
+## CA 028 (20.5.1 [organization]) - LEWG
 
 Suggestion to accept this request.
 
-* Add `<experimental/reflect>` to Table 19 "C++ headers for freestanding implementations" referenced by 20.5.1.3.
+* Add `<experimental/reflect>` to Table 19 "C++ headers for freestanding implementations" referenced by 20.5.1.3 [compliance].
 
-## CH 056 (21.12.4.2) - SG7/LWG
+## CH 056 (21.12.4.2 [reflect.ops.objseq]) - SG7/LWG
 
 Modify definition of `unpack_sequence_t` from [reflect.synopsis] as follows.
 
@@ -834,7 +834,7 @@ See the resolution to CA 071.
 
 Suggest to accept the proposed change with modifications; this is a non-editorial change.
 
-Replace the bulleted list of 21.12.4.3/2 by the following:
+Replace the bulleted list of 21.12.4.3 [reflect.ops.named]/2 by the following:
 
 > The value of `get_display_name_v<T>` is the empty string if `T` reflects an unnamed entity; otherwise the value is implementation defined.
 >
@@ -847,7 +847,7 @@ Replace the bulleted list of 21.12.4.3/2 by the following:
 >    - a *type-parameter*, the identifier introduced by the *type-parameter*;
 >    - a class type, its *class-name*;
 >    - an enumeration type, its *enum-name*;
->    - a fundamental type other than `std::nullptr_t`, the name stated in the "Type" column of Table 9 in (10.1.7.2);
+>    - a fundamental type other than `std::nullptr_t`, the name stated in the "Type" column of Table 9 in (10.1.7.2 [dcl.type.simple]);
 > - for `T` reflecting
 >    - a namespace, its *namespace-name*;
 >    - a variable, enumerator, data member, or function, its unqualified name;
